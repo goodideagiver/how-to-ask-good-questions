@@ -1,0 +1,23 @@
+.root {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	> * {
+		flex: 1;
+	}
+}
+
+.label {
+	font-size: 1.5rem;
+}
+
+.textarea {
+	font-size: 1rem;
+	padding: 1rem;
+	border-radius: 1rem;
+	resize: vertical;
+	max-height: 150px;
+	min-height: 50px;
+	height: fit-content;
+}
