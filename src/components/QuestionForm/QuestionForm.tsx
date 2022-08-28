@@ -1,4 +1,6 @@
+import { useReducer } from 'react';
 import { FormTextarea } from './FormTextarea/FormTextarea';
+import { OptionalInput } from './OptionalInput/OptionalInput';
 import classes from './QuestionForm.module.scss';
 
 export const QuestionForm = () => {
@@ -10,8 +12,22 @@ export const QuestionForm = () => {
 				value=''
 				onChange={() => console.log('changed')}
 			/>
+			<OptionalInput>
+				<FormTextarea
+					label='Used technologies'
+					placeholder='Eg. React - useState not synchronized with input change'
+					value=''
+					onChange={() => console.log('changed')}
+				/>
+			</OptionalInput>
 			<FormTextarea
 				label='Describe the problem'
+				placeholder='Eg. React - useState not synchronized with input change'
+				value=''
+				onChange={() => console.log('changed')}
+			/>
+			<FormTextarea
+				label='Concrete example'
 				placeholder='Eg. React - useState not synchronized with input change'
 				value=''
 				onChange={() => console.log('changed')}
@@ -22,7 +38,10 @@ export const QuestionForm = () => {
 				value=''
 				onChange={() => console.log('changed')}
 			/>
-			<button>Copy the message</button>
+			<div>
+				<button>Copy the message</button>
+				<button>Reset</button>
+			</div>
 		</form>
 	);
 };

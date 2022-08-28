@@ -1,0 +1,32 @@
+.root {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem;
+	border: 2px gray solid;
+	border-radius: 1rem;
+}
+
+.label {
+	cursor: pointer;
+}
+
+.circle {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+
+	cursor: pointer;
+	display: block;
+}
+
+.check:checked + .circle {
+	background-color: #ccc;
+}
+
+.check {
+	display: none;
+}
