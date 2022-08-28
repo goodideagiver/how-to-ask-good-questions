@@ -1,14 +1,25 @@
-import { ReactNode, useId, useState } from 'react';
+import { ReactNode, useEffect, useId, useState } from 'react';
 import classes from './OptionalInput.module.scss';
 
 type Props = {
 	children: ReactNode;
+	onHide: () => void;
 };
 
-export const OptionalInput = ({ children }: Props) => {
+export const OptionalInput = ({ children, onHide }: Props) => {
 	const [active, setActive] = useState(false);
 
 	const checkboxLabel = useId();
+
+	const checkboxChangeHandler = () => {
+		setActive(!active);
+	};
+
+	useEffect(() => {
+		if (!active) {
+			onHide();
+		}
+	}, [active]);
 
 	return (
 		<>
@@ -21,7 +32,7 @@ export const OptionalInput = ({ children }: Props) => {
 						className={classes.check}
 						type='checkbox'
 						id={checkboxLabel}
-						onChange={() => setActive(!active)}
+						onChange={checkboxChangeHandler}
 					></input>
 					<label
 						tabIndex={0}

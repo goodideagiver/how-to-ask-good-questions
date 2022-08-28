@@ -1,12 +1,13 @@
 import classes from './FormTextarea.module.scss';
 
-import { useId } from 'react';
+import { ChangeEvent, useId } from 'react';
 
 type Props = {
 	placeholder: string;
-	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+	onChange: (name: string, value: string, key: string) => void;
 	value: string;
 	label: string;
+	objectKey: string;
 };
 
 export const FormTextarea = ({
@@ -14,8 +15,13 @@ export const FormTextarea = ({
 	placeholder,
 	value,
 	label,
+	objectKey,
 }: Props) => {
 	const inputId = useId();
+
+	const inputChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		onChange(label, event.target.value, objectKey);
+	};
 
 	return (
 		<div className={classes.root}>
@@ -24,7 +30,7 @@ export const FormTextarea = ({
 			</label>
 			<textarea
 				className={classes.textarea}
-				onChange={onChange}
+				onChange={inputChangeHandler}
 				placeholder={placeholder}
 				value={value}
 				id={inputId}
