@@ -86,7 +86,7 @@ export const QuestionForm = () => {
 			</div>
 			{message && message.trim().length && (
 				<div>
-					<p>Oputput:</p>
+					<p>{t('outputPreview')}:</p>
 					<p className={classes.output}>
 						<ReactMarkdown>{message}</ReactMarkdown>
 					</p>

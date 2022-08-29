@@ -1,5 +1,6 @@
-import i18n from 'i18next';
+import i18n, { t } from 'i18next';
 import { ChangeEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const LanguageSelect = () => {
 	const langChangeHandler = (lang: string) => {
@@ -12,9 +13,11 @@ export const LanguageSelect = () => {
 		}
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<div>
-			<label htmlFor='lang-select'>Choose a language:</label>
+			<label htmlFor='lang-select'>{t('chooseLanguage')}:</label>
 			<select onChange={selectHandler} name='languages' id='lang-select'>
 				<option value=''>--Please choose an option--</option>
 				<option value='en'>ENG</option>

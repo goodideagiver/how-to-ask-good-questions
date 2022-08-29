@@ -26,5 +26,7 @@
   "mainButtons": {
     "copy": "Copy",
     "reset": "Reset"
-  }
+  },
+  "chooseLanguage": "Choose a language",
+  "outputPreview": "Output preview"
 }
