@@ -1,13 +1,11 @@
-import { Reducer, useReducer } from 'react';
+import { useReducer } from 'react';
 
-type FormInput =
-	| {
-			[key: string]: {
-				value: string;
-				name: string;
-			};
-	  }
-	| {};
+type FormInput = {
+	[key: string]: {
+		value: string;
+		name: string;
+	};
+};
 
 export enum FormActionTypes {
 	SET_INPUT_VALUE = 'SET_INPUT_VALUE',

@@ -11,37 +11,37 @@ export const QuestionForm = () => {
 		<form className={classes.root}>
 			<FormTextarea
 				label='Question topic'
-				placeholder='Eg. React - useState not synchronized with input change'
+				placeholder='React - useState not synchronized with input change'
 				value={questionInputsState?.topic?.value || ''}
 				onChange={setInputValue}
 				objectKey='topic'
 			/>
 			<OptionalInput onHide={() => setInputValue('', '', 'technologies')}>
 				<FormTextarea
-					label='Used technologies'
-					placeholder='Eg. React - useState not synchronized with input change'
+					label='Used technologies that concern the question'
+					placeholder='Redux, React, Typescript'
 					value={questionInputsState?.technologies?.value || ''}
 					onChange={setInputValue}
 					objectKey='technologies'
 				/>
 			</OptionalInput>
 			<FormTextarea
-				label='Describe the problem'
-				placeholder='Eg. React - useState not synchronized with input change'
+				label='What should be happening vs what is happening'
+				placeholder='When I input the message, and click the copy button, the message should be copied to the clipboard, but it is empty.'
 				value={questionInputsState?.problem?.value || ''}
 				onChange={setInputValue}
 				objectKey='problem'
 			/>
 			<FormTextarea
-				label='Concrete example'
-				placeholder='Eg. React - useState not synchronized with input change'
+				label='What did you try to solve the problem?'
+				placeholder='I tried to solve the problem by using the useState hook.'
 				value={questionInputsState?.example?.value || ''}
 				onChange={setInputValue}
 				objectKey='example'
 			/>
 			<FormTextarea
-				label='What did you try already to solve the problem?'
-				placeholder='Eg. React - useState not synchronized with input change'
+				label='What sources did you read in order to solve the problem?'
+				placeholder='https://reactjs.org/docs/hooks-reference.html'
 				value={questionInputsState?.solution?.value || ''}
 				onChange={setInputValue}
 				objectKey='solution'
