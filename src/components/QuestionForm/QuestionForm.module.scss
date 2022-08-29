@@ -7,3 +7,31 @@
 	gap: 1rem;
 	flex-direction: column;
 }
+
+.output {
+	padding: 1rem;
+	text-align: left;
+	color: white;
+	background-color: #424549;
+	border-radius: 1rem;
+	strong {
+		display: block;
+	}
+	overflow-x: auto;
+	animation: outputReveal 2s ease-in-out;
+}
+
+@keyframes outputReveal {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.controls {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}

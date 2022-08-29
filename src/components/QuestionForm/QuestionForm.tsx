@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import ReactMarkdown from 'react-markdown';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { OptionalInput } from './OptionalInput/OptionalInput';
@@ -69,7 +70,7 @@ export const QuestionForm = () => {
 				onChange={setInputValue}
 				objectKey='sources'
 			/>
-			<div>
+			<div className={classes.controls}>
 				<button onClick={copyMessageHanlder} type='button'>
 					{t('mainButtons.copy')}
 				</button>
@@ -78,6 +79,14 @@ export const QuestionForm = () => {
 				</button>
 				<LanguageSelect />
 			</div>
+			{message && message.trim().length && (
+				<div>
+					<p>Oputput:</p>
+					<p className={classes.output}>
+						<ReactMarkdown>{message}</ReactMarkdown>
+					</p>
+				</div>
+			)}
 		</form>
 	);
 };

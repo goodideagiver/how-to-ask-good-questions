@@ -1,8 +1,8 @@
 .root {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 1rem;
+	align-items: center;
 	> * {
 		flex: 1;
 	}
