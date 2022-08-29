@@ -4,9 +4,10 @@ import classes from './OptionalInput.module.scss';
 type Props = {
 	children: ReactNode;
 	onHide: () => void;
+	label: string;
 };
 
-export const OptionalInput = ({ children, onHide }: Props) => {
+export const OptionalInput = ({ children, onHide, label }: Props) => {
 	const [active, setActive] = useState(false);
 
 	const checkboxLabel = useId();
@@ -25,7 +26,7 @@ export const OptionalInput = ({ children, onHide }: Props) => {
 		<>
 			<div className={classes.root}>
 				<label className={classes.label} htmlFor={checkboxLabel}>
-					Used technologies
+					{label}
 				</label>
 				<div className={classes.controls}>
 					<input

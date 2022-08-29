@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
+import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
+import '/public/config';
 
 export const QuestionForm = () => {
 	const { questionInputsState, setInputValue, resetFormHandler, message } =
@@ -17,52 +20,58 @@ export const QuestionForm = () => {
 		}
 	};
 
+	const { t } = useTranslation();
+
 	return (
 		<form className={classes.root}>
 			<FormTextarea
-				label='Question topic'
-				placeholder='React - useState not synchronized with input change'
+				label={t('inputs.topic.label')}
+				placeholder={t('inputs.topic.placeholder')}
 				value={questionInputsState?.topic?.value || ''}
 				onChange={setInputValue}
 				objectKey='topic'
 			/>
-			<OptionalInput onHide={() => setInputValue('', '', 'technologies')}>
+			<OptionalInput
+				label={t('usedTechnologies')}
+				onHide={() => setInputValue('', '', 'technologies')}
+			>
 				<FormTextarea
-					label='Used technologies that concern the question'
-					placeholder='Redux, React, Typescript'
+					label={t('inputs.technologies.label')}
+					placeholder={t('inputs.technologies.placeholder')}
 					value={questionInputsState?.technologies?.value || ''}
 					onChange={setInputValue}
 					objectKey='technologies'
 				/>
 			</OptionalInput>
 			<FormTextarea
-				label='What should be happening vs what is happening'
-				placeholder='When I input the message, and click the copy button, the message should be copied to the clipboard, but it is empty.'
+				label={t('inputs.expected.label')}
+				placeholder={t('inputs.expected.placeholder')}
 				value={questionInputsState?.problem?.value || ''}
 				onChange={setInputValue}
 				objectKey='expected'
 			/>
 			<FormTextarea
-				label='What did you try to solve the problem?'
-				placeholder='I tried to solve the problem by using the useState hook.'
+				label={t('inputs.whatTried.label')}
+				placeholder={t('inputs.whatTried.placeholder')}
 				value={questionInputsState?.example?.value || ''}
 				onChange={setInputValue}
 				objectKey='whatTried'
 			/>
 			<FormTextarea
-				label='What sources did you read in order to solve the problem?'
-				placeholder='https://reactjs.org/docs/hooks-reference.html'
+				label={t('inputs.sources.label')}
+				placeholder={t('inputs.sources.placeholder')}
 				value={questionInputsState?.solution?.value || ''}
 				onChange={setInputValue}
 				objectKey='sources'
 			/>
 			<div>
 				<button onClick={copyMessageHanlder} type='button'>
-					Copy
+					{t('mainButtons.copy')}
 				</button>
 				<button type='button' onClick={resetFormHandler}>
-					Reset
+					{t('mainButtons.reset')}
 				</button>
+				<LanguageSelect />
 			</div>
 		</form>
 	);

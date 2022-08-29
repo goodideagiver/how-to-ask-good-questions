@@ -22,6 +22,7 @@
       "placeholder": "https://reactjs.org/docs/hooks-reference.html"
     }
   },
+  "usedTechnologies": "Used technologies",
   "mainButtons": {
     "copy": "Copy",
     "reset": "Reset"

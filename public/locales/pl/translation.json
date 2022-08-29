@@ -22,6 +22,7 @@
       "placeholder": "Próbowałem/łam rozwiązania napisanego w artykule https://reactjs.org/docs/hooks-reference.html, ale nie działało, bo w linijce 8 wyświetla się taki komunikat: \"useState is not a function\""
     }
   },
+    "usedTechnologies": "Wykorzystane technologie",
   "mainButtons": {
     "copy": "Kopiuj",
     "reset": "Wyczyść"
