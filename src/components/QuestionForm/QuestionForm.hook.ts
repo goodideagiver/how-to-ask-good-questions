@@ -67,9 +67,24 @@ export const useQuestionForm = () => {
 		});
 	};
 
+	const messageGenerator = () => {
+		let formattedMessage = '';
+
+		Object.keys(state).forEach((key) => {
+			const title = state[key].name;
+			const value = state[key].value;
+			const row = `**${title}**\n${value}\n\n`;
+			formattedMessage += row;
+		});
+		return formattedMessage;
+	};
+
+	const message = messageGenerator();
+
 	return {
 		questionInputsState: state,
 		setInputValue,
 		resetFormHandler,
+		message,
 	};
 };

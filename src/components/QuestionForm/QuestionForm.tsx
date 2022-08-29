@@ -4,8 +4,18 @@ import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
 
 export const QuestionForm = () => {
-	const { questionInputsState, setInputValue, resetFormHandler } =
+	const { questionInputsState, setInputValue, resetFormHandler, message } =
 		useQuestionForm();
+
+	const copyMessageHanlder = () => {
+		try {
+			if (!message || message.trim().length === 0)
+				throw new Error('No message to copy');
+			navigator.clipboard.writeText(message);
+		} catch (error) {
+			alert('Could not copy message to clipboard.');
+		}
+	};
 
 	return (
 		<form className={classes.root}>
@@ -47,7 +57,9 @@ export const QuestionForm = () => {
 				objectKey='solution'
 			/>
 			<div>
-				<button type='button'>Copy the message</button>
+				<button onClick={copyMessageHanlder} type='button'>
+					Copy
+				</button>
 				<button type='button' onClick={resetFormHandler}>
 					Reset
 				</button>
