@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { FormTextarea } from './FormTextarea/FormTextarea';
@@ -21,6 +22,10 @@ export const QuestionForm = () => {
 	};
 
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		resetFormHandler();
+	}, [t]);
 
 	return (
 		<form className={classes.root}>
@@ -46,21 +51,21 @@ export const QuestionForm = () => {
 			<FormTextarea
 				label={t('inputs.expected.label')}
 				placeholder={t('inputs.expected.placeholder')}
-				value={questionInputsState?.problem?.value || ''}
+				value={questionInputsState?.expected?.value || ''}
 				onChange={setInputValue}
 				objectKey='expected'
 			/>
 			<FormTextarea
 				label={t('inputs.whatTried.label')}
 				placeholder={t('inputs.whatTried.placeholder')}
-				value={questionInputsState?.example?.value || ''}
+				value={questionInputsState?.whatTried?.value || ''}
 				onChange={setInputValue}
 				objectKey='whatTried'
 			/>
 			<FormTextarea
 				label={t('inputs.sources.label')}
 				placeholder={t('inputs.sources.placeholder')}
-				value={questionInputsState?.solution?.value || ''}
+				value={questionInputsState?.sources?.value || ''}
 				onChange={setInputValue}
 				objectKey='sources'
 			/>
