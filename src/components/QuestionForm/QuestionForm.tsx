@@ -40,21 +40,21 @@ export const QuestionForm = () => {
 				placeholder='When I input the message, and click the copy button, the message should be copied to the clipboard, but it is empty.'
 				value={questionInputsState?.problem?.value || ''}
 				onChange={setInputValue}
-				objectKey='problem'
+				objectKey='expected'
 			/>
 			<FormTextarea
 				label='What did you try to solve the problem?'
 				placeholder='I tried to solve the problem by using the useState hook.'
 				value={questionInputsState?.example?.value || ''}
 				onChange={setInputValue}
-				objectKey='example'
+				objectKey='whatTried'
 			/>
 			<FormTextarea
 				label='What sources did you read in order to solve the problem?'
 				placeholder='https://reactjs.org/docs/hooks-reference.html'
 				value={questionInputsState?.solution?.value || ''}
 				onChange={setInputValue}
-				objectKey='solution'
+				objectKey='sources'
 			/>
 			<div>
 				<button onClick={copyMessageHanlder} type='button'>
