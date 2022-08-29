@@ -2,6 +2,8 @@ import i18n, { t } from 'i18next';
 import { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import classes from './LanguageSelect.module.scss';
+
 export const LanguageSelect = () => {
 	const langChangeHandler = (lang: string) => {
 		i18n.changeLanguage(lang);
@@ -18,7 +20,12 @@ export const LanguageSelect = () => {
 	return (
 		<div>
 			<label htmlFor='lang-select'>{t('chooseLanguage')}:</label>
-			<select onChange={selectHandler} name='languages' id='lang-select'>
+			<select
+				className={classes.input}
+				onChange={selectHandler}
+				name='languages'
+				id='lang-select'
+			>
 				<option value=''>--Please choose an option--</option>
 				<option value='en'>ENG</option>
 				<option value='pl'>PL</option>
