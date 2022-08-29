@@ -9,8 +9,13 @@ import classes from './QuestionForm.module.scss';
 import '/public/config';
 
 export const QuestionForm = () => {
-	const { questionInputsState, setInputValue, resetFormHandler, message } =
-		useQuestionForm();
+	const {
+		questionInputsState,
+		removeInput,
+		setInputValue,
+		resetFormHandler,
+		message,
+	} = useQuestionForm();
 
 	const copyMessageHanlder = () => {
 		try {
@@ -39,7 +44,7 @@ export const QuestionForm = () => {
 			/>
 			<OptionalInput
 				label={t('usedTechnologies')}
-				onHide={() => setInputValue('', '', 'technologies')}
+				onHide={() => removeInput('technologies')}
 			>
 				<FormTextarea
 					label={t('inputs.technologies.label')}

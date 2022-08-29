@@ -9,7 +9,7 @@ type FormInput = {
 
 export enum FormActionTypes {
 	SET_INPUT_VALUE = 'SET_INPUT_VALUE',
-	RMOVE_INPUT_VALUE = 'RMOVE_INPUT_VALUE',
+	REMOVE_INPUT_VALUE = 'REMOVE_INPUT_VALUE',
 	RESET_FORM = 'RESET_FORM',
 }
 
@@ -39,6 +39,14 @@ const messageReducer = (state: FormInput, action: FormAction) => {
 		return {};
 	}
 
+	if (action.type === FormActionTypes.REMOVE_INPUT_VALUE) {
+		if (!state.hasOwnProperty(action.payload.objectKey)) return state;
+
+		const stateCopy = { ...state };
+		delete stateCopy[action.payload.objectKey];
+		return stateCopy;
+	}
+
 	return state;
 };
 
@@ -52,6 +60,17 @@ export const useQuestionForm = () => {
 				name,
 				value,
 				objectKey: key,
+			},
+		});
+	};
+
+	const removeInput = (key: string) => {
+		dispatch({
+			type: FormActionTypes.REMOVE_INPUT_VALUE,
+			payload: {
+				objectKey: key,
+				name: '',
+				value: '',
 			},
 		});
 	};
@@ -86,5 +105,6 @@ export const useQuestionForm = () => {
 		setInputValue,
 		resetFormHandler,
 		message,
+		removeInput,
 	};
 };
