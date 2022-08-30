@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { FormTextarea } from './FormTextarea/FormTextarea';
+import { FormTextareas } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
@@ -35,12 +36,9 @@ export const QuestionForm = () => {
 
 	return (
 		<form className={classes.root}>
-			<FormTextarea
-				label={t('inputs.topic.label')}
-				placeholder={t('inputs.topic.placeholder')}
-				value={questionInputsState?.topic?.value || ''}
+			<FormTextareas
 				onChange={setInputValue}
-				objectKey='topic'
+				questionInputsState={questionInputsState}
 			/>
 			<OptionalInput
 				label={t('usedTechnologies')}
@@ -54,27 +52,6 @@ export const QuestionForm = () => {
 					objectKey='technologies'
 				/>
 			</OptionalInput>
-			<FormTextarea
-				label={t('inputs.expected.label')}
-				placeholder={t('inputs.expected.placeholder')}
-				value={questionInputsState?.expected?.value || ''}
-				onChange={setInputValue}
-				objectKey='expected'
-			/>
-			<FormTextarea
-				label={t('inputs.whatTried.label')}
-				placeholder={t('inputs.whatTried.placeholder')}
-				value={questionInputsState?.whatTried?.value || ''}
-				onChange={setInputValue}
-				objectKey='whatTried'
-			/>
-			<FormTextarea
-				label={t('inputs.sources.label')}
-				placeholder={t('inputs.sources.placeholder')}
-				value={questionInputsState?.sources?.value || ''}
-				onChange={setInputValue}
-				objectKey='sources'
-			/>
 			<div className={classes.controls}>
 				<button onClick={copyMessageHanlder} type='button'>
 					{t('mainButtons.copy')}

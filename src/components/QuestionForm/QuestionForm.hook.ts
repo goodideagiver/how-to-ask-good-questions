@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-type FormInput = {
+export type FormInput = {
 	[key: string]: {
 		value: string;
 		name: string;
@@ -12,6 +12,8 @@ export enum FormActionTypes {
 	REMOVE_INPUT_VALUE = 'REMOVE_INPUT_VALUE',
 	RESET_FORM = 'RESET_FORM',
 }
+
+export type SetInputValue = (name: string, value: string, key: string) => void;
 
 export interface FormAction {
 	type: FormActionTypes;
