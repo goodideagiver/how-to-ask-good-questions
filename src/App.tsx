@@ -7,10 +7,10 @@ function App() {
 	const { t } = useTranslation();
 
 	return (
-		<div>
+		<>
 			<h1>{t('mainTitle')}</h1>
 			<QuestionForm />
-		</div>
+		</>
 	);
 }
 

@@ -8,6 +8,7 @@ type Props = {
 	value: string;
 	label: string;
 	objectKey: string;
+	animate?: boolean;
 };
 
 export const FormTextarea = ({
@@ -16,6 +17,7 @@ export const FormTextarea = ({
 	value,
 	label,
 	objectKey,
+	animate = false,
 }: Props) => {
 	const inputId = useId();
 
@@ -23,8 +25,10 @@ export const FormTextarea = ({
 		onChange(label, event.target.value, objectKey);
 	};
 
+	const rootClassNames = `${classes.root} ${animate ? classes.animate : ''}`;
+
 	return (
-		<div className={classes.root}>
+		<div className={rootClassNames}>
 			<label className={classes.label} htmlFor={inputId}>
 				{label}
 			</label>

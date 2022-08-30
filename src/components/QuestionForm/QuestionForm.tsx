@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
+import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
@@ -35,40 +36,46 @@ export const QuestionForm = () => {
 	}, [t]);
 
 	return (
-		<form className={classes.root}>
-			<FormTextareas
-				onChange={setInputValue}
-				questionInputsState={questionInputsState}
-			/>
-			<OptionalInput
-				label={t('usedTechnologies')}
-				onHide={() => removeInput('technologies')}
-			>
-				<FormTextarea
-					label={t('inputs.technologies.label')}
-					placeholder={t('inputs.technologies.placeholder')}
-					value={questionInputsState?.technologies?.value || ''}
+		<WindowLayout>
+			<form className={classes.root}>
+				<FormTextareas
 					onChange={setInputValue}
-					objectKey='technologies'
+					questionInputsState={questionInputsState}
 				/>
-			</OptionalInput>
-			<div className={classes.controls}>
-				<button onClick={copyMessageHanlder} type='button'>
-					{t('mainButtons.copy')}
-				</button>
-				<button type='button' onClick={resetFormHandler}>
-					{t('mainButtons.reset')}
-				</button>
-				<LanguageSelect />
-			</div>
-			{message && message.trim().length && (
-				<div>
-					<p>{t('outputPreview')}:</p>
-					<p className={classes.output}>
-						<ReactMarkdown>{message}</ReactMarkdown>
-					</p>
+				<OptionalInput
+					label={t('usedTechnologies')}
+					onHide={() => removeInput('technologies')}
+				>
+					<FormTextarea
+						animate={true}
+						label={t('inputs.technologies.label')}
+						placeholder={t('inputs.technologies.placeholder')}
+						value={questionInputsState?.technologies?.value || ''}
+						onChange={setInputValue}
+						objectKey='technologies'
+					/>
+				</OptionalInput>
+				<div className={classes.controls}>
+					<button onClick={copyMessageHanlder} type='button'>
+						{t('mainButtons.copy')}
+					</button>
+					<button type='button' onClick={resetFormHandler}>
+						{t('mainButtons.reset')}
+					</button>
+					<LanguageSelect />
 				</div>
-			)}
-		</form>
+			</form>
+
+			<div>
+				<p>{t('outputPreview')}:</p>
+				<p className={classes.output}>
+					{message && message.trim().length ? (
+						<ReactMarkdown>{message}</ReactMarkdown>
+					) : (
+						<p className={classes.empty}>{t('noData')}</p>
+					)}
+				</p>
+			</div>
+		</WindowLayout>
 	);
 };

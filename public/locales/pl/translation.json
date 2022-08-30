@@ -28,5 +28,6 @@
     "reset": "Wyczyść"
   },
   "chooseLanguage": "Wybierz język",
-  "outputPreview": "Podgląd"
+  "outputPreview": "Podgląd",
+    "noData": "Musisz wypełnić przynajmniej jedno pole."
 }
