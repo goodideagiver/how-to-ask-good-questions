@@ -9,6 +9,7 @@ type Props = {
 	label: string;
 	objectKey: string;
 	animate?: boolean;
+	visible?: boolean;
 };
 
 export const FormTextarea = ({
@@ -18,6 +19,7 @@ export const FormTextarea = ({
 	label,
 	objectKey,
 	animate = false,
+	visible = true,
 }: Props) => {
 	const inputId = useId();
 
@@ -26,6 +28,8 @@ export const FormTextarea = ({
 	};
 
 	const rootClassNames = `${classes.root} ${animate ? classes.animate : ''}`;
+
+	if (!visible) return null;
 
 	return (
 		<div className={rootClassNames}>
