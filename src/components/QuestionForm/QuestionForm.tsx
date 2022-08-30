@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
+import { FormProgress } from '../FormProgress/FormProgress';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormTextarea } from './FormTextarea/FormTextarea';
-import { FormTextareas } from './FormTextareas/FormTextareas';
+import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
@@ -38,6 +39,11 @@ export const QuestionForm = () => {
 	return (
 		<WindowLayout>
 			<form className={classes.root}>
+				<FormProgress
+					percentage={
+						(Object.keys(questionInputsState).length / textareasCount) * 100
+					}
+				/>
 				<FormTextareas
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}

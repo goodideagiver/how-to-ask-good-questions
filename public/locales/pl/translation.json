@@ -1,4 +1,6 @@
 {
+  "completionComment":"Gratulacje! To pytanie jest dobre!",
+  "overcompletionComment":"ŚWIETNE PYTANIE!",
   "mainTitle":"Jak zadawać dobre pytania?",
   "inputs": {
     "topic": {

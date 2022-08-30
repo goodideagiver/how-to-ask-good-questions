@@ -1,4 +1,6 @@
 {
+  "completionComment":"Congratulations! This question is good!",
+    "overcompletionComment":"GREAT QUESTION!",
   "mainTitle":"How to ask good questions?",
   "inputs": {
     "topic": {

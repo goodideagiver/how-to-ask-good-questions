@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormTextarea } from '../FormTextarea/FormTextarea';
 import { FormInput, SetInputValue } from '../QuestionForm.hook';
@@ -19,6 +18,8 @@ const textareasKeys: TextAreaState[] = [
 	{ name: 'whatTried', visible: false },
 	{ name: 'sources', visible: false },
 ];
+
+export const textareasCount = textareasKeys.length;
 
 export const FormTextareas = ({
 	onChange: setInputValue,
