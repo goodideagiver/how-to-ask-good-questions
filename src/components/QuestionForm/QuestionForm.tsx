@@ -70,7 +70,9 @@ export const QuestionForm = () => {
 				<p>{t('outputPreview')}:</p>
 				<p className={classes.output}>
 					{message && message.trim().length ? (
-						<ReactMarkdown>{message}</ReactMarkdown>
+						<ReactMarkdown className={classes.markdown}>
+							{message}
+						</ReactMarkdown>
 					) : (
 						<p className={classes.empty}>{t('noData')}</p>
 					)}
