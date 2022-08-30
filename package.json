@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "i18next": "^21.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,6 +19,7 @@
     "react-markdown": "^8.0.3",
     "sass": "^1.54.5"
   },
+  "homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
