@@ -16,6 +16,7 @@ export const FormTextareas = ({
 
 	const textareas = textareasKeys.map((key) => (
 		<FormTextarea
+			key={key}
 			label={t(`inputs.${key}.label`)}
 			placeholder={t(`inputs.${key}.placeholder`)}
 			value={questionInputsState?.[key]?.value || ''}
