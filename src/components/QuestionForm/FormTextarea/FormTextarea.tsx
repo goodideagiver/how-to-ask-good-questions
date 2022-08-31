@@ -8,6 +8,7 @@ type Props = {
 	value: string;
 	label: string;
 	objectKey: string;
+	onEmptyInput: () => void;
 	animate?: boolean;
 	visible?: boolean;
 };
@@ -20,10 +21,15 @@ export const FormTextarea = ({
 	objectKey,
 	animate = false,
 	visible = true,
+	onEmptyInput,
 }: Props) => {
 	const inputId = useId();
 
 	const inputChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		if (event.target.value.length === 0) {
+			onEmptyInput();
+			return;
+		}
 		onChange(label, event.target.value, objectKey);
 	};
 

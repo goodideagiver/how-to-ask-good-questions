@@ -45,6 +45,7 @@ export const QuestionForm = () => {
 					}
 				/>
 				<FormTextareas
+					onEmptyInput={removeInput}
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}
 				/>
@@ -53,6 +54,7 @@ export const QuestionForm = () => {
 					onHide={() => removeInput('technologies')}
 				>
 					<FormTextarea
+						onEmptyInput={() => removeInput('technologies')}
 						animate={true}
 						label={t('inputs.technologies.label')}
 						placeholder={t('inputs.technologies.placeholder')}

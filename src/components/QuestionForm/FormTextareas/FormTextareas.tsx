@@ -5,6 +5,7 @@ import { FormInput, SetInputValue } from '../QuestionForm.hook';
 type Props = {
 	questionInputsState: FormInput;
 	onChange: SetInputValue;
+	onEmptyInput: (key: string) => void;
 };
 
 type TextAreaState = {
@@ -24,6 +25,7 @@ export const textareasCount = textareasKeys.length;
 export const FormTextareas = ({
 	onChange: setInputValue,
 	questionInputsState,
+	onEmptyInput,
 }: Props) => {
 	const { t } = useTranslation();
 
@@ -32,6 +34,7 @@ export const FormTextareas = ({
 
 		return (
 			<FormTextarea
+				onEmptyInput={() => onEmptyInput(nameOfKey)}
 				key={nameOfKey}
 				label={t(`inputs.${nameOfKey}.label`)}
 				placeholder={t(`inputs.${nameOfKey}.placeholder`)}
