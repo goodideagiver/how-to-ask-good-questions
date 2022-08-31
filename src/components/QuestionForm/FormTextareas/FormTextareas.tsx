@@ -32,9 +32,24 @@ export const FormTextareas = ({
 	const textareas = textareasKeys.map((key, index) => {
 		const nameOfKey = key.name;
 
+		const emptyInputHandler = () => {
+			onEmptyInput(nameOfKey);
+			//removes next inputs values if user removes earlier input
+			const emptiedIndex = textareasKeys.findIndex(
+				(item) => item.name === nameOfKey
+			);
+			if (emptiedIndex !== -1) {
+				textareasKeys.forEach((item, index) => {
+					if (index > emptiedIndex) {
+						onEmptyInput(item.name);
+					}
+				});
+			}
+		};
+
 		return (
 			<FormTextarea
-				onEmptyInput={() => onEmptyInput(nameOfKey)}
+				onEmptyInput={() => emptyInputHandler()}
 				key={nameOfKey}
 				label={t(`inputs.${nameOfKey}.label`)}
 				placeholder={t(`inputs.${nameOfKey}.placeholder`)}
