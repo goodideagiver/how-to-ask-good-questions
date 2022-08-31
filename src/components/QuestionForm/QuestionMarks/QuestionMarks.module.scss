@@ -1,0 +1,54 @@
+.first {
+	animation: first 20s ease-in-out infinite;
+}
+.second {
+	animation: second 50s ease-in-out infinite;
+	left: 0;
+	top: 0;
+	width: 300px;
+}
+
+.third {
+	animation: third 60s -30s ease-in-out infinite;
+	right: 0;
+	bottom: 0;
+	left: auto;
+	top: auto;
+	width: 300px;
+}
+
+@keyframes first {
+	0% {
+		transform: translate3d(-50%, 0, 0);
+	}
+	50% {
+		transform: translate3d(-20%, 10px, 0) rotate(20deg);
+	}
+	100% {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+
+@keyframes second {
+	0% {
+		transform: translate3d(-50%, 0, 0) rotate(100deg);
+	}
+	50% {
+		transform: translate3d(-50%, 100px, 0) rotate(-100deg);
+	}
+	100% {
+		transform: translate3d(-50%, 0, 0) rotate(100deg);
+	}
+}
+
+@keyframes third {
+	0% {
+		transform: translate3d(0%, 0, 0);
+	}
+	50% {
+		transform: translate3d(-15%, 0, 0) rotate(320deg);
+	}
+	100% {
+		transform: translate3d(0%, 0, 0);
+	}
+}

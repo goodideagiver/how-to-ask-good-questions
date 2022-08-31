@@ -9,6 +9,7 @@ import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
+import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/public/config';
 
 export const QuestionForm = () => {
@@ -38,6 +39,7 @@ export const QuestionForm = () => {
 
 	return (
 		<WindowLayout>
+			<QuestionMarks />
 			<form className={classes.root}>
 				<FormProgress
 					percentage={
@@ -73,8 +75,7 @@ export const QuestionForm = () => {
 					<LanguageSelect />
 				</div>
 			</form>
-
-			<div>
+			<div className={classes.right}>
 				<p>{t('outputPreview')}:</p>
 				<p className={classes.output}>
 					{message && message.trim().length ? (
