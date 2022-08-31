@@ -26,7 +26,7 @@ export const OptionalInput = ({ children, onHide, label }: Props) => {
 		<>
 			<div className={classes.root}>
 				<label className={classes.label} htmlFor={checkboxLabel}>
-					{label}
+					<span>{label}</span>
 				</label>
 				<div className={classes.controls}>
 					<input
