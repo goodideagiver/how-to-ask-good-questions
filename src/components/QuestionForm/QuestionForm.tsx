@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormProgress } from '../FormProgress/FormProgress';
+import { FormProgress, MAX_PERCENTAGE } from '../FormProgress/FormProgress';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormControls } from './FormControls/FormControls';
 import { FormOutput } from './FormOutput/FormOutput';
@@ -43,7 +43,8 @@ export const QuestionForm = () => {
 			<form className={classes.root}>
 				<FormProgress
 					percentage={
-						(Object.keys(questionInputsState).length / textareasCount) * 100
+						(Object.keys(questionInputsState).length / textareasCount) *
+						MAX_PERCENTAGE
 					}
 				/>
 				<FormTextareas

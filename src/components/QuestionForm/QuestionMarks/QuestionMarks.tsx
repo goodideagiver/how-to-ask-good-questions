@@ -2,9 +2,7 @@ import { QuestionMark } from './QuestionMark';
 
 import classes from './QuestionMarks.module.scss';
 
-type Props = {};
-
-export const QuestionMarks = ({}: Props) => {
+export const QuestionMarks = () => {
 	return (
 		<>
 			<QuestionMark className={classes.first} />

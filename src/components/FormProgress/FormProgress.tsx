@@ -5,16 +5,17 @@ type Props = {
 	percentage: number;
 };
 
-const MAX_PERCENTAGE: number = 100;
+export const MAX_PERCENTAGE = 100;
+const MIN_PERCENTAGE = 0;
 
-export const FormProgress = ({ percentage = 0 }: Props) => {
+export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 	let classNames = classes.root;
 
-	if (percentage === 100) {
+	if (percentage === MAX_PERCENTAGE) {
 		classNames = `${classes.root} ${classes.complete}`;
 	}
 
-	if (percentage > 100) {
+	if (percentage > MAX_PERCENTAGE) {
 		classNames = `${classes.root} ${classes.overcomplete}`;
 	}
 
@@ -26,8 +27,8 @@ export const FormProgress = ({ percentage = 0 }: Props) => {
 
 	return (
 		<div className={classNames}>
-			{percentage === 100 && completionComment}
-			{percentage > 100 && overcompletionComment}
+			{percentage === MAX_PERCENTAGE && completionComment}
+			{percentage > MAX_PERCENTAGE && overcompletionComment}
 			<div className={classes.progWrapper}>
 				<div
 					className={classes.prog}
