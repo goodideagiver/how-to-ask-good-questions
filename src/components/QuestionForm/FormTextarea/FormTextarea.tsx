@@ -2,6 +2,8 @@ import classes from './FormTextarea.module.scss';
 
 import { ChangeEvent, useId } from 'react';
 
+const EMPTY_STRING_LENGTH = 0;
+
 type Props = {
 	placeholder: string;
 	onChange: (name: string, value: string, key: string) => void;
@@ -26,7 +28,7 @@ export const FormTextarea = ({
 	const inputId = useId();
 
 	const inputChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		if (event.target.value.trim().length === 0) {
+		if (event.target.value.trim().length === EMPTY_STRING_LENGTH) {
 			onEmptyInput();
 			return;
 		}

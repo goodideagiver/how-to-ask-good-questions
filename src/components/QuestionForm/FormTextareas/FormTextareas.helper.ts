@@ -16,7 +16,8 @@ const resetAllInputsAfterRemovedKey = (
 ) => {
 	//removes next inputs values if user removes earlier input
 	const emptiedIndex = keys.findIndex((item) => item.name === key);
-	if (emptiedIndex !== -1) {
+	const notFoundIndex = -1;
+	if (emptiedIndex !== notFoundIndex) {
 		keys.forEach((item, index) => {
 			if (index > emptiedIndex) {
 				onEmptyInput(item.name);

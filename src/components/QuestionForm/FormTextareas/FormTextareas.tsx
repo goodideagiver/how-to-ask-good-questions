@@ -9,6 +9,8 @@ type Props = {
 	onEmptyInput: (key: string) => void;
 };
 
+const FIRST_EL_INDEX = 0;
+
 export type TextAreaState = {
 	name: string;
 };
@@ -32,12 +34,14 @@ export const FormTextareas = ({
 	const textareas = textareasKeys.map((key, index) => {
 		const nameOfKey: string = key.name;
 
-		const animateOnMount: boolean = index > 0;
+		const animateOnMount: boolean = index > FIRST_EL_INDEX;
+
+		const prevInputIndex = index - 1;
 		const isPrevInputFilled: boolean =
 			index < 1 ||
-			!!questionInputsState?.[textareasKeys[index - 1].name]?.value.length;
+			!!questionInputsState?.[textareasKeys[prevInputIndex].name]?.value.length;
 
-		const translationLocation: string = `inputs.${nameOfKey}`;
+		const translationLocation = `inputs.${nameOfKey}`;
 
 		return (
 			<FormTextarea

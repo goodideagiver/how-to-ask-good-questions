@@ -1,9 +1,11 @@
-import i18n, { t } from 'i18next';
+import i18n from 'i18next';
 import { ChangeEvent, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocalStorage } from '../../hooks/useLocalStorage.hook';
 
 import classes from './LanguageSelect.module.scss';
+
+const EMPTY_STRING_LENGTH = 0;
 
 export const LanguageSelect = () => {
 	const { setItem, value } = useLocalStorage('language');
@@ -16,7 +18,7 @@ export const LanguageSelect = () => {
 	};
 
 	const selectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-		if (event.target.value.trim().length > 0) {
+		if (event.target.value.trim().length > EMPTY_STRING_LENGTH) {
 			langChangeHandler(event.target.value);
 		}
 	};
