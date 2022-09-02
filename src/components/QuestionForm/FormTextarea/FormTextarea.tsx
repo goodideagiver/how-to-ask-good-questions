@@ -26,7 +26,7 @@ export const FormTextarea = ({
 	const inputId = useId();
 
 	const inputChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		if (event.target.value.length === 0) {
+		if (event.target.value.trim().length === 0) {
 			onEmptyInput();
 			return;
 		}
