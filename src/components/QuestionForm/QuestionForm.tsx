@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { FormProgress } from '../FormProgress/FormProgress';
 import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
+import { FormControls } from './FormControls/FormControls';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
@@ -19,12 +20,12 @@ export const QuestionForm = () => {
 		setInputValue,
 		resetFormHandler,
 		message,
+		hasMessage,
 	} = useQuestionForm();
 
 	const copyMessageHanlder = () => {
 		try {
-			if (!message || message.trim().length === 0)
-				throw new Error('No message to copy');
+			if (!hasMessage) throw new Error('No message to copy');
 			navigator.clipboard.writeText(message);
 		} catch (error) {
 			alert('Could not copy message to clipboard.');
@@ -65,20 +66,15 @@ export const QuestionForm = () => {
 						objectKey='technologies'
 					/>
 				</OptionalInput>
-				<div className={classes.controls}>
-					<button onClick={copyMessageHanlder} type='button'>
-						{t('mainButtons.copy')}
-					</button>
-					<button type='button' onClick={resetFormHandler}>
-						{t('mainButtons.reset')}
-					</button>
-					<LanguageSelect />
-				</div>
+				<FormControls
+					copyMessageHanlder={copyMessageHanlder}
+					resetFormHandler={resetFormHandler}
+				/>
 			</form>
 			<div className={classes.right}>
 				<p>{t('outputPreview')}:</p>
 				<p className={classes.output}>
-					{message && message.trim().length ? (
+					{hasMessage ? (
 						<ReactMarkdown className={classes.markdown}>
 							{message}
 						</ReactMarkdown>

@@ -102,11 +102,14 @@ export const useQuestionForm = () => {
 
 	const message = messageGenerator();
 
+	const hasMessage = message || message.trim().length === 0;
+
 	return {
 		questionInputsState: state,
 		setInputValue,
 		resetFormHandler,
 		message,
 		removeInput,
+		hasMessage,
 	};
 };
