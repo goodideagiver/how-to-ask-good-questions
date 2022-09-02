@@ -10,7 +10,7 @@ import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
-import '/public/config';
+import '/src/config';
 
 export const QuestionForm = () => {
 	const {

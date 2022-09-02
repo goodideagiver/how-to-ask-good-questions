@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import './App.scss';
 import { QuestionForm } from './components/QuestionForm/QuestionForm';
-import '/public/config';
+import '/src/config';
 
 function App() {
 	const { t } = useTranslation();
