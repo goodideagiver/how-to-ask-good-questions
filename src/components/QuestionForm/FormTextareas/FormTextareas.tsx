@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { FormTextarea } from '../FormTextarea/FormTextarea';
 import { FormInput, SetInputValue } from '../QuestionForm.hook';
+import { emptyInputHandler } from './FormTextareas.helper';
 
 type Props = {
 	questionInputsState: FormInput;
@@ -8,16 +9,15 @@ type Props = {
 	onEmptyInput: (key: string) => void;
 };
 
-type TextAreaState = {
+export type TextAreaState = {
 	name: string;
-	visible: boolean;
 };
 
 const textareasKeys: TextAreaState[] = [
-	{ name: 'topic', visible: true },
-	{ name: 'expected', visible: false },
-	{ name: 'whatTried', visible: false },
-	{ name: 'sources', visible: false },
+	{ name: 'topic' },
+	{ name: 'expected' },
+	{ name: 'whatTried' },
+	{ name: 'sources' },
 ];
 
 export const textareasCount = textareasKeys.length;
@@ -30,37 +30,28 @@ export const FormTextareas = ({
 	const { t } = useTranslation();
 
 	const textareas = textareasKeys.map((key, index) => {
-		const nameOfKey = key.name;
+		const nameOfKey: string = key.name;
 
-		const emptyInputHandler = () => {
-			onEmptyInput(nameOfKey);
-			//removes next inputs values if user removes earlier input
-			const emptiedIndex = textareasKeys.findIndex(
-				(item) => item.name === nameOfKey
-			);
-			if (emptiedIndex !== -1) {
-				textareasKeys.forEach((item, index) => {
-					if (index > emptiedIndex) {
-						onEmptyInput(item.name);
-					}
-				});
-			}
-		};
+		const animateOnMount: boolean = index > 0;
+		const isPrevInputFilled: boolean =
+			index < 1 ||
+			!!questionInputsState?.[textareasKeys[index - 1].name]?.value.length;
+
+		const translationLocation: string = `inputs.${nameOfKey}`;
 
 		return (
 			<FormTextarea
-				onEmptyInput={() => emptyInputHandler()}
+				onEmptyInput={() =>
+					emptyInputHandler(nameOfKey, onEmptyInput, textareasKeys)
+				}
 				key={nameOfKey}
-				label={t(`inputs.${nameOfKey}.label`)}
-				placeholder={t(`inputs.${nameOfKey}.placeholder`)}
+				label={t(`${translationLocation}.label`)}
+				placeholder={t(`${translationLocation}.placeholder`)}
 				value={questionInputsState?.[nameOfKey]?.value || ''}
 				onChange={setInputValue}
 				objectKey={nameOfKey}
-				visible={
-					index < 1 ||
-					!!questionInputsState?.[textareasKeys[index - 1].name]?.value.length
-				}
-				animate={index > 0}
+				visible={isPrevInputFilled}
+				animate={animateOnMount}
 			/>
 		);
 	});
