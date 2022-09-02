@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import ReactMarkdown from 'react-markdown';
 import { FormProgress } from '../FormProgress/FormProgress';
-import { LanguageSelect } from '../LanguageSelect/LanguageSelect';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormControls } from './FormControls/FormControls';
+import { FormOutput } from './FormOutput/FormOutput';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
@@ -71,18 +70,7 @@ export const QuestionForm = () => {
 					resetFormHandler={resetFormHandler}
 				/>
 			</form>
-			<div className={classes.right}>
-				<p>{t('outputPreview')}:</p>
-				<p className={classes.output}>
-					{hasMessage ? (
-						<ReactMarkdown className={classes.markdown}>
-							{message}
-						</ReactMarkdown>
-					) : (
-						<p className={classes.empty}>{t('noData')}</p>
-					)}
-				</p>
-			</div>
+			<FormOutput hasMessage={!!hasMessage} message={message} />
 		</WindowLayout>
 	);
 };
