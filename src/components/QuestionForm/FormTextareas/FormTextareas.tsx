@@ -45,9 +45,7 @@ export const FormTextareas = ({
 
 		return (
 			<FormTextarea
-				onEmptyInput={() =>
-					emptyInputHandler(nameOfKey, onEmptyInput, textareasKeys)
-				}
+				onEmptyInput={() => emptyInputHandler(nameOfKey, onEmptyInput)}
 				key={nameOfKey}
 				label={t(`${translationLocation}.label`)}
 				placeholder={t(`${translationLocation}.placeholder`)}

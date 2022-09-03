@@ -2,11 +2,10 @@ import { TextAreaState } from './FormTextareas';
 
 export const emptyInputHandler = (
 	key: string,
-	onEmptyInput: (val: string) => void,
-	keys: TextAreaState[]
+	onEmptyInput: (val: string) => void
 ) => {
 	onEmptyInput(key);
-	resetAllInputsAfterRemovedKey(keys, onEmptyInput, key);
+	// resetAllInputsAfterRemovedKey(keys, onEmptyInput, key);
 };
 
 const resetAllInputsAfterRemovedKey = (
