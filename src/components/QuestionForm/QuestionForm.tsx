@@ -7,7 +7,7 @@ import { FormOutput } from './FormOutput/FormOutput';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
-import { useQuestionForm } from './QuestionForm.hook';
+import { FormInput, useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/src/config';
@@ -37,18 +37,19 @@ export const QuestionForm = () => {
 		resetFormHandler();
 	}, [t]);
 
+	const fields = questionInputsState && Object.values(questionInputsState);
+
+	const filledFieldsCount: number =
+		fields.length && fields.filter((field) => field.value).length;
+
 	return (
 		<WindowLayout>
 			<QuestionMarks />
 			<form className={classes.root}>
 				<FormProgress
-					percentage={
-						(Object.keys(questionInputsState).length / textareasCount) *
-						MAX_PERCENTAGE
-					}
+					percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
 				/>
 				<FormTextareas
-					onEmptyInput={removeInput}
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}
 				/>
@@ -57,7 +58,6 @@ export const QuestionForm = () => {
 					onHide={() => removeInput('technologies')}
 				>
 					<FormTextarea
-						onEmptyInput={() => removeInput('technologies')}
 						animate={true}
 						label={t('inputs.technologies.label')}
 						placeholder={t('inputs.technologies.placeholder')}
