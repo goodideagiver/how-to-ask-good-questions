@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react';
 
-export const useScrollY = (container: HTMLElement) => {
+export const useScrollY = (container: HTMLElement | null) => {
 	const [scrollY, setScrollY] = useState(0);
 
 	const handleScroll = () => {
-		setScrollY(container.scrollTop);
+		if (container) {
+			setScrollY(container.scrollTop);
+		}
 	};
 
 	useEffect(() => {
-		container.addEventListener('scroll', handleScroll);
-
+		if (container) {
+			container.addEventListener('scroll', handleScroll);
+		}
 		return () => {
-			container.removeEventListener('scroll', handleScroll);
+			if (container) {
+				container.removeEventListener('scroll', handleScroll);
+			}
 		};
 	}, [container]);
 

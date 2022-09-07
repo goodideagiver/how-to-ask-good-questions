@@ -8,7 +8,7 @@ import { FormOutput } from './FormOutput/FormOutput';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
-import { FormInput, useQuestionForm } from './QuestionForm.hook';
+import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/src/config';
@@ -45,13 +45,21 @@ export const QuestionForm = () => {
 
 	const form = useRef<HTMLFormElement>(null);
 
-	let scrolledDown = !!form.current && useScrollY(form.current) > 0;
+	const scrolledDown = useScrollY(form.current) > 0;
+
+	const rootClasses = `${classes.root} ${
+		scrolledDown ? classes.rootScrolled : ''
+	}`;
+
+	const progressClasses = `${classes.floating} ${
+		scrolledDown ? classes.scrolled : ''
+	}`;
 
 	return (
 		<WindowLayout>
 			<QuestionMarks />
-			<form ref={form} className={classes.root}>
-				<div className={classes.floating}>
+			<form ref={form} className={rootClasses}>
+				<div className={progressClasses}>
 					<FormProgress
 						isScrolledDown={scrolledDown}
 						percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
