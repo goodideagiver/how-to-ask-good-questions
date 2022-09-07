@@ -3,6 +3,7 @@ import classes from './FormProgress.module.scss';
 
 type Props = {
 	percentage: number;
+	isScrolledDown: boolean;
 };
 
 export const MAX_PERCENTAGE = 100;
@@ -27,8 +28,6 @@ export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 
 	return (
 		<div className={classNames}>
-			{percentage === MAX_PERCENTAGE && completionComment}
-			{percentage > MAX_PERCENTAGE && overcompletionComment}
 			<div className={classes.progWrapper}>
 				<div
 					className={classes.prog}
@@ -36,7 +35,14 @@ export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 						width: `${percentage}%`,
 						maxWidth: `${MAX_PERCENTAGE}%`,
 					}}
-				></div>
+				>
+					{percentage === MAX_PERCENTAGE && (
+						<p className={classes.comment}>{completionComment}</p>
+					)}
+					{percentage > MAX_PERCENTAGE && (
+						<p className={classes.comment}>{overcompletionComment}</p>
+					)}
+				</div>
 			</div>
 		</div>
 	);

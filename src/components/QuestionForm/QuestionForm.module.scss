@@ -8,4 +8,21 @@
 
 	position: relative;
 	backdrop-filter: blur(10px);
+
+	max-height: 60vh;
+	overflow-y: auto;
+	transition: 0.1s;
+}
+
+.floating {
+	position: sticky;
+	top: 0;
+}
+
+.scrolled {
+	box-shadow: rgba(0, 0, 0, 1) 0 0 25px -5px;
+}
+
+.rootScrolled {
+	padding-top: 0;
 }

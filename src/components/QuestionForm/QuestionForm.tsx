@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useScrollY } from '../../hooks/useScrollY.hook';
 import { FormProgress, MAX_PERCENTAGE } from '../FormProgress/FormProgress';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormControls } from './FormControls/FormControls';
@@ -7,7 +8,7 @@ import { FormOutput } from './FormOutput/FormOutput';
 import { FormTextarea } from './FormTextarea/FormTextarea';
 import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
-import { FormInput, useQuestionForm } from './QuestionForm.hook';
+import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/src/config';
@@ -42,13 +43,28 @@ export const QuestionForm = () => {
 	const filledFieldsCount: number =
 		fields.length && fields.filter((field) => field.value).length;
 
+	const form = useRef<HTMLFormElement>(null);
+
+	const scrolledDown = useScrollY(form.current) > 0;
+
+	const rootClasses = `${classes.root} ${
+		scrolledDown ? classes.rootScrolled : ''
+	}`;
+
+	const progressClasses = `${classes.floating} ${
+		scrolledDown ? classes.scrolled : ''
+	}`;
+
 	return (
 		<WindowLayout>
 			<QuestionMarks />
-			<form className={classes.root}>
-				<FormProgress
-					percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
-				/>
+			<form ref={form} className={rootClasses}>
+				<div className={progressClasses}>
+					<FormProgress
+						isScrolledDown={scrolledDown}
+						percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
+					/>
+				</div>
 				<FormTextareas
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}
