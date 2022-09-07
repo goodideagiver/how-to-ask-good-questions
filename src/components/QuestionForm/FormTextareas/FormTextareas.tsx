@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { FormTextarea } from '../FormTextarea/FormTextarea';
 import { FormInput, SetInputValue } from '../QuestionForm.hook';
-import { emptyInputHandler } from './FormTextareas.helper';
 
 type Props = {
 	questionInputsState: FormInput;
 	onChange: SetInputValue;
-	onEmptyInput: (key: string) => void;
 };
 
 const FIRST_EL_INDEX = 0;
@@ -27,36 +25,34 @@ export const textareasCount = textareasKeys.length;
 export const FormTextareas = ({
 	onChange: setInputValue,
 	questionInputsState,
-	onEmptyInput,
 }: Props) => {
 	const { t } = useTranslation();
 
-	const textareas = textareasKeys.map((key, index) => {
+	const Textareas = textareasKeys.map((key, index) => {
 		const nameOfKey: string = key.name;
 
 		const animateOnMount: boolean = index > FIRST_EL_INDEX;
 
 		const prevInputIndex = index - 1;
-		const isPrevInputFilled: boolean =
+		const isPrevInputTouched: boolean =
 			index < 1 ||
-			!!questionInputsState?.[textareasKeys[prevInputIndex].name]?.value.length;
+			!!questionInputsState?.[textareasKeys[prevInputIndex].name]?.touched;
 
 		const translationLocation = `inputs.${nameOfKey}`;
 
 		return (
 			<FormTextarea
-				onEmptyInput={() => emptyInputHandler(nameOfKey, onEmptyInput)}
 				key={nameOfKey}
 				label={t(`${translationLocation}.label`)}
 				placeholder={t(`${translationLocation}.placeholder`)}
 				value={questionInputsState?.[nameOfKey]?.value || ''}
 				onChange={setInputValue}
 				objectKey={nameOfKey}
-				visible={isPrevInputFilled}
+				visible={isPrevInputTouched}
 				animate={animateOnMount}
 			/>
 		);
 	});
 
-	return <>{textareas}</>;
+	return <>{Textareas}</>;
 };

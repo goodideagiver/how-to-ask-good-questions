@@ -4,6 +4,7 @@ export type FormInput = {
 	[key: string]: {
 		value: string;
 		name: string;
+		touched: boolean;
 	};
 };
 
@@ -21,6 +22,7 @@ export interface FormAction {
 		objectKey: string;
 		name: string;
 		value: string;
+		touched: boolean;
 	};
 }
 
@@ -33,6 +35,7 @@ const messageReducer = (state: FormInput, action: FormAction) => {
 			[action.payload.objectKey]: {
 				name: action.payload.name,
 				value: action.payload.value,
+				touched: true,
 			},
 		};
 	}
@@ -62,6 +65,7 @@ export const useQuestionForm = () => {
 				name,
 				value,
 				objectKey: key,
+				touched: true,
 			},
 		});
 	};
@@ -73,6 +77,7 @@ export const useQuestionForm = () => {
 				objectKey: key,
 				name: '',
 				value: '',
+				touched: true,
 			},
 		});
 	};
@@ -84,6 +89,7 @@ export const useQuestionForm = () => {
 				name: '',
 				value: '',
 				objectKey: '',
+				touched: false,
 			},
 		});
 	};
@@ -91,12 +97,13 @@ export const useQuestionForm = () => {
 	const messageGenerator = () => {
 		let formattedMessage = '';
 
-		Object.keys(state).forEach((key) => {
-			const title = state[key].name;
-			const value = state[key].value;
-			const row = `**${title}**\n${value}\n\n`;
+		const filledFields = Object.values(state).filter((el) => el.value);
+
+		filledFields.forEach((field) => {
+			const row = `**${field.name}**\n${field.value}\n\n`;
 			formattedMessage += row;
 		});
+
 		return formattedMessage;
 	};
 

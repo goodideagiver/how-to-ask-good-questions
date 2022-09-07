@@ -5,7 +5,6 @@ export const emptyInputHandler = (
 	onEmptyInput: (val: string) => void
 ) => {
 	onEmptyInput(key);
-	// resetAllInputsAfterRemovedKey(keys, onEmptyInput, key);
 };
 
 const resetAllInputsAfterRemovedKey = (

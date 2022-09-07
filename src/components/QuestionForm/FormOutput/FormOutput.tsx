@@ -11,8 +11,10 @@ type Props = {
 export const FormOutput = ({ hasMessage, message }: Props) => {
 	const { t } = useTranslation();
 
+	const outputCss = `${classes.right} ${!message ? classes.hidden : ''}`;
+
 	return (
-		<div className={classes.right}>
+		<div className={outputCss}>
 			<p>{t('outputPreview')}:</p>
 			<p className={classes.output}>
 				{hasMessage ? (
