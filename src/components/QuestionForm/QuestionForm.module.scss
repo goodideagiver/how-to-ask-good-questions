@@ -8,4 +8,12 @@
 
 	position: relative;
 	backdrop-filter: blur(10px);
+
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+.floating {
+	position: sticky;
+	top: 0;
 }
