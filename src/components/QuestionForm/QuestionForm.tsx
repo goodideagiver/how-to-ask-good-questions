@@ -43,9 +43,9 @@ export const QuestionForm = () => {
 	const filledFieldsCount: number =
 		fields.length && fields.filter((field) => field.value).length;
 
-	const form = useRef<HTMLElement>(null);
+	const form = useRef<HTMLFormElement>(null);
 
-	const scrolledDown = !!form && useScrollY(form) > 0;
+	let scrolledDown = !!form.current && useScrollY(form.current) > 0;
 
 	return (
 		<WindowLayout>
@@ -53,6 +53,7 @@ export const QuestionForm = () => {
 			<form ref={form} className={classes.root}>
 				<div className={classes.floating}>
 					<FormProgress
+						isScrolledDown={scrolledDown}
 						percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
 					/>
 				</div>
