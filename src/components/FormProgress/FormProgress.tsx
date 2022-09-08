@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import classes from './FormProgress.module.scss';
-import { useFormClasses } from './useFormProgress.hook';
+import { useFormClasses } from './useFormProgressClasses.hook';
 
 type Props = {
 	percentage: number;
