@@ -3,7 +3,6 @@ import classes from './FormProgress.module.scss';
 
 type Props = {
 	percentage: number;
-	isScrolledDown: boolean;
 };
 
 export const MAX_PERCENTAGE = 100;

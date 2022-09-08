@@ -10,6 +10,7 @@ import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
+import { QuestionFormProgress } from './QuestionFormProgress/QuestionFormProgress';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/src/config';
 
@@ -21,7 +22,6 @@ export const QuestionForm = () => {
 		resetFormHandler,
 		message,
 		hasMessage,
-		messageGenerator,
 	} = useQuestionForm();
 
 	const copyMessageHanlder = () => {
@@ -40,9 +40,9 @@ export const QuestionForm = () => {
 	const filledFieldsCount: number =
 		fields.length && fields.filter((field) => field.value).length;
 
-	const form = useRef<HTMLFormElement>(null);
+	const formRef = useRef<HTMLFormElement>(null);
 
-	const scrolledDown = useScrollY(form.current) > 0;
+	const scrolledDown = useScrollY(formRef.current) > 0;
 
 	const rootClasses = `${classes.root} ${
 		scrolledDown ? classes.rootScrolled : ''
@@ -55,13 +55,11 @@ export const QuestionForm = () => {
 	return (
 		<WindowLayout>
 			<QuestionMarks />
-			<form ref={form} className={rootClasses}>
-				<div className={progressClasses}>
-					<FormProgress
-						isScrolledDown={scrolledDown}
-						percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
-					/>
-				</div>
+			<form ref={formRef} className={rootClasses}>
+				<QuestionFormProgress
+					percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
+					isParetnScrolled={scrolledDown}
+				/>
 				<FormTextareas
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}
