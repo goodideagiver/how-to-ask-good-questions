@@ -37,8 +37,11 @@ export const QuestionForm = () => {
 
 	const fields = questionInputsState && Object.values(questionInputsState);
 
-	const filledFieldsCount: number =
-		fields.length && fields.filter((field) => field.value).length;
+	const hasFields = fields && fields.length > 0;
+
+	const filledFieldsCount: number = hasFields
+		? fields.filter((field) => field.value).length
+		: 0;
 
 	const formRef = useRef<HTMLFormElement>(null);
 
@@ -46,10 +49,6 @@ export const QuestionForm = () => {
 
 	const rootClasses = `${classes.root} ${
 		scrolledDown ? classes.rootScrolled : ''
-	}`;
-
-	const progressClasses = `${classes.floating} ${
-		scrolledDown ? classes.scrolled : ''
 	}`;
 
 	return (
