@@ -118,5 +118,6 @@ export const useQuestionForm = () => {
 		message,
 		removeInput,
 		hasMessage,
+		messageGenerator,
 	};
 };

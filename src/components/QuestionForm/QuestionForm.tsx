@@ -21,6 +21,7 @@ export const QuestionForm = () => {
 		resetFormHandler,
 		message,
 		hasMessage,
+		messageGenerator,
 	} = useQuestionForm();
 
 	const copyMessageHanlder = () => {
@@ -33,10 +34,6 @@ export const QuestionForm = () => {
 	};
 
 	const { t } = useTranslation();
-
-	useEffect(() => {
-		resetFormHandler();
-	}, [t]);
 
 	const fields = questionInputsState && Object.values(questionInputsState);
 

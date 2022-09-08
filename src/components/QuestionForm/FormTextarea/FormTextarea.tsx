@@ -1,6 +1,7 @@
 import classes from './FormTextarea.module.scss';
 
-import { ChangeEvent, useId } from 'react';
+import { ChangeEvent, useEffect, useId } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
 	placeholder: string;
@@ -20,7 +21,6 @@ export const FormTextarea = ({
 	objectKey,
 	animate = false,
 	visible = true,
-
 }: Props) => {
 	const inputId = useId();
 
@@ -29,6 +29,12 @@ export const FormTextarea = ({
 	};
 
 	const rootClassNames = `${classes.root} ${animate ? classes.animate : ''}`;
+
+	const { t } = useTranslation();
+
+	useEffect(() => {
+		onChange(label, value, objectKey);
+	}, [t]);
 
 	if (!visible) return null;
 
