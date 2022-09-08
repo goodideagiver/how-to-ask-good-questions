@@ -33,7 +33,9 @@ export const FormTextarea = ({
 	const { t } = useTranslation();
 
 	useEffect(() => {
-		onChange(label, value, objectKey);
+		if (value && value.length > 0) {
+			onChange(label, value, objectKey);
+		}
 	}, [t]);
 
 	if (!visible) return null;
