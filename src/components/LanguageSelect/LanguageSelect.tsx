@@ -42,7 +42,9 @@ export const LanguageSelect = () => {
 				name='languages'
 				id='lang-select'
 			>
-				<option value=''>--Please choose an option--</option>
+				<option disabled value=''>
+					--Please choose an option--
+				</option>
 				<option value='en'>ENG</option>
 				<option value='pl'>PL</option>
 			</select>
