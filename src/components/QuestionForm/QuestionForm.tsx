@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollY } from '../../hooks/useScrollY.hook';
-import { FormProgress, MAX_PERCENTAGE } from '../FormProgress/FormProgress';
+import { MAX_PERCENTAGE } from '../FormProgress/FormProgress';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormControls } from './FormControls/FormControls';
 import { FormOutput } from './FormOutput/FormOutput';
