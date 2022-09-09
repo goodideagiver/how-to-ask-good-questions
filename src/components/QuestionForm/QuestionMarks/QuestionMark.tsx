@@ -9,5 +9,5 @@ type Props = {
 export const QuestionMark = ({ className }: Props) => {
 	const classNames = `${classes.root} ${className || ''}`;
 
-	return <img className={classNames} aria-hidden='true' src={question}></img>;
+	return <img className={classNames} aria-hidden='true' src={question} />;
 };
