@@ -1,18 +1,20 @@
+import { cssClass } from '../../../helpers/cssClass.helper';
 import { FormProgress } from '../../FormProgress/FormProgress';
 
 import classes from './QuestionFormProgress.module.scss';
 
 type Props = {
 	percentage: number;
-	isParetnScrolled: boolean;
+	isParentScrolled: boolean;
 };
 export const QuestionFormProgress = ({
 	percentage,
-	isParetnScrolled,
+	isParentScrolled,
 }: Props) => {
-	const progressClasses = `${classes.floating} ${
-		isParetnScrolled ? classes.scrolled : ''
-	}`;
+	const progressClasses = cssClass(
+		classes.floating,
+		isParentScrolled ? classes.scrolled : ''
+	);
 
 	return (
 		<div className={progressClasses}>

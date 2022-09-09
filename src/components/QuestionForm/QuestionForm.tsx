@@ -57,7 +57,7 @@ export const QuestionForm = () => {
 			<form ref={formRef} className={rootClasses}>
 				<QuestionFormProgress
 					percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
-					isParetnScrolled={scrolledDown}
+					isParentScrolled={scrolledDown}
 				/>
 				<FormTextareas
 					onChange={setInputValue}
