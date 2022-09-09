@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
+import { cssBool, cssClass } from '../../../helpers/cssClass.helper';
 
 import classes from './FormOutput.module.scss';
 
@@ -11,7 +12,7 @@ type Props = {
 export const FormOutput = ({ hasMessage, message }: Props) => {
 	const { t } = useTranslation();
 
-	const outputCss = `${classes.right} ${!message ? classes.hidden : ''}`;
+	const outputCss = cssClass(classes.right, cssBool(!message, classes.hidden));
 
 	return (
 		<div className={outputCss}>

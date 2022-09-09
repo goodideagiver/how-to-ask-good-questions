@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { cssClass } from '../../helpers/cssClass.helper';
 import { useScrollY } from '../../hooks/useScrollY.hook';
 import { MAX_PERCENTAGE } from '../FormProgress/FormProgress';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
@@ -47,9 +48,10 @@ export const QuestionForm = () => {
 
 	const scrolledDown = useScrollY(formRef.current) > 0;
 
-	const rootClasses = `${classes.root} ${
-		scrolledDown ? classes.rootScrolled : ''
-	}`;
+	const rootClasses = cssClass(
+		classes.root,
+		(scrolledDown && classes.rootScrolled) || ''
+	);
 
 	return (
 		<WindowLayout>

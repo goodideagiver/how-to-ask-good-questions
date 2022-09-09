@@ -3,3 +3,7 @@ export const cssClass = (...css: string[]) => {
 
 	return cssClasses;
 };
+
+export const cssBool = (condition: boolean, css: string) => {
+	return condition ? css : '';
+};
