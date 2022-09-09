@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { cssClass } from '../../helpers/cssClass.helper';
 import { useScrollY } from '../../hooks/useScrollY.hook';
-import { FormProgress, MAX_PERCENTAGE } from '../FormProgress/FormProgress';
+import { MAX_PERCENTAGE } from '../FormProgress/FormProgress';
 import { WindowLayout } from '../WindowLayout/WindowLayout';
 import { FormControls } from './FormControls/FormControls';
 import { FormOutput } from './FormOutput/FormOutput';
@@ -10,6 +11,7 @@ import { FormTextareas, textareasCount } from './FormTextareas/FormTextareas';
 import { OptionalInput } from './OptionalInput/OptionalInput';
 import { useQuestionForm } from './QuestionForm.hook';
 import classes from './QuestionForm.module.scss';
+import { QuestionFormProgress } from './QuestionFormProgress/QuestionFormProgress';
 import { QuestionMarks } from './QuestionMarks/QuestionMarks';
 import '/src/config';
 
@@ -21,7 +23,6 @@ export const QuestionForm = () => {
 		resetFormHandler,
 		message,
 		hasMessage,
-		messageGenerator,
 	} = useQuestionForm();
 
 	const copyMessageHanlder = () => {
@@ -37,31 +38,29 @@ export const QuestionForm = () => {
 
 	const fields = questionInputsState && Object.values(questionInputsState);
 
-	const filledFieldsCount: number =
-		fields.length && fields.filter((field) => field.value).length;
+	const hasFields = fields && fields.length > 0;
 
-	const form = useRef<HTMLFormElement>(null);
+	const filledFieldsCount: number = hasFields
+		? fields.filter((field) => field.value).length
+		: 0;
 
-	const scrolledDown = useScrollY(form.current) > 0;
+	const formRef = useRef<HTMLFormElement>(null);
 
-	const rootClasses = `${classes.root} ${
-		scrolledDown ? classes.rootScrolled : ''
-	}`;
+	const scrolledDown = useScrollY(formRef.current) > 0;
 
-	const progressClasses = `${classes.floating} ${
-		scrolledDown ? classes.scrolled : ''
-	}`;
+	const rootClasses = cssClass(
+		classes.root,
+		(scrolledDown && classes.rootScrolled) || ''
+	);
 
 	return (
 		<WindowLayout>
 			<QuestionMarks />
-			<form ref={form} className={rootClasses}>
-				<div className={progressClasses}>
-					<FormProgress
-						isScrolledDown={scrolledDown}
-						percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
-					/>
-				</div>
+			<form ref={formRef} className={rootClasses}>
+				<QuestionFormProgress
+					percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
+					isParentScrolled={scrolledDown}
+				/>
 				<FormTextareas
 					onChange={setInputValue}
 					questionInputsState={questionInputsState}

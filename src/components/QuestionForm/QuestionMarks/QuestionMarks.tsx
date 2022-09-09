@@ -3,11 +3,14 @@ import { QuestionMark } from './QuestionMark';
 import classes from './QuestionMarks.module.scss';
 
 export const QuestionMarks = () => {
-	return (
-		<>
-			<QuestionMark className={classes.first} />
-			<QuestionMark className={classes.second} />
-			<QuestionMark className={classes.third} />
-		</>
-	);
+	const questionMarkClasses = ['first', 'second', 'third'];
+
+	const QuestionMarks = questionMarkClasses.map((questionMarkClass) => (
+		<QuestionMark
+			key={questionMarkClass}
+			className={classes[questionMarkClass]}
+		/>
+	));
+
+	return <>{QuestionMarks}</>;
 };

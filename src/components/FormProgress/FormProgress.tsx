@@ -1,24 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import classes from './FormProgress.module.scss';
+import { useFormClasses } from './useFormProgressClasses.hook';
 
 type Props = {
 	percentage: number;
-	isScrolledDown: boolean;
 };
 
 export const MAX_PERCENTAGE = 100;
 const MIN_PERCENTAGE = 0;
 
 export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
-	let classNames = classes.root;
-
-	if (percentage === MAX_PERCENTAGE) {
-		classNames = `${classes.root} ${classes.complete}`;
-	}
-
-	if (percentage > MAX_PERCENTAGE) {
-		classNames = `${classes.root} ${classes.overcomplete}`;
-	}
+	const { classNames } = useFormClasses(MAX_PERCENTAGE, percentage);
 
 	const { t } = useTranslation();
 

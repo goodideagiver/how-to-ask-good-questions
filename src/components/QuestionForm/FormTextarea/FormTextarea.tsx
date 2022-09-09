@@ -2,6 +2,7 @@ import classes from './FormTextarea.module.scss';
 
 import { ChangeEvent, useEffect, useId } from 'react';
 import { useTranslation } from 'react-i18next';
+import { cssBool, cssClass } from '../../../helpers/cssClass.helper';
 
 type Props = {
 	placeholder: string;
@@ -28,12 +29,17 @@ export const FormTextarea = ({
 		onChange(label, event.target.value, objectKey);
 	};
 
-	const rootClassNames = `${classes.root} ${animate ? classes.animate : ''}`;
+	const rootClassNames = cssClass(
+		classes.root,
+		cssBool(animate, classes.animate)
+	);
 
 	const { t } = useTranslation();
 
 	useEffect(() => {
-		onChange(label, value, objectKey);
+		if (value && value.length > 0) {
+			onChange(label, value, objectKey);
+		}
 	}, [t]);
 
 	if (!visible) return null;

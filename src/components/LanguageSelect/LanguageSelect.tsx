@@ -1,36 +1,12 @@
-import i18n from 'i18next';
-import { ChangeEvent, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocalStorage } from '../../hooks/useLocalStorage.hook';
 
 import classes from './LanguageSelect.module.scss';
-
-const EMPTY_STRING_LENGTH = 0;
+import { useLanguageSelect } from './useLanguageSelect';
 
 export const LanguageSelect = () => {
-	const { setItem, value } = useLocalStorage('language');
-
-	const selectRef = useRef<HTMLSelectElement>(null);
-
-	const langChangeHandler = (lang: string) => {
-		i18n.changeLanguage(lang);
-		setItem(lang);
-	};
-
-	const selectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-		if (event.target.value.trim().length > EMPTY_STRING_LENGTH) {
-			langChangeHandler(event.target.value);
-		}
-	};
-
 	const { t } = useTranslation();
 
-	useEffect(() => {
-		if (selectRef.current && value) {
-			selectRef.current.value = value;
-			langChangeHandler(value);
-		}
-	}, [value]);
+	const { selectHandler, selectRef } = useLanguageSelect();
 
 	return (
 		<div>
