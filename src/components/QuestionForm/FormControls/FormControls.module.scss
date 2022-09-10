@@ -2,9 +2,10 @@
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	button {
 		flex: 1;
 	}
+	padding-bottom: 2rem;
 }
