@@ -6,12 +6,12 @@
 
 .progWrapper {
 	width: 100%;
-	background-color: #424549;
+	background-color: #4245498a;
 	background: linear-gradient(
 		60deg,
 		rgba(255, 255, 255, 0.1) 30%,
-		transparent 35%,
-		transparent 60%,
+		rgba(0, 0, 0, 0.1) 35%,
+		rgba(0, 0, 0, 0.1) 60%,
 		rgba(255, 255, 255, 0.1) 65%
 	);
 	background-size: 5%;
@@ -19,6 +19,7 @@
 	border-radius: 1rem;
 	overflow: hidden;
 	border: 1px gray solid;
+	backdrop-filter: blur(10px);
 }
 
 @keyframes barScrollAnim {

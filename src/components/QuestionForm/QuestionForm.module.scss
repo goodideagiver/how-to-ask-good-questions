@@ -1,5 +1,5 @@
 .root {
-	background-color: #2c2f33b3;
+	background-color: #2c2f33d7;
 	padding: 2rem;
 	display: flex;
 	gap: 2rem;
@@ -7,7 +7,6 @@
 	box-shadow: rgba(0, 0, 0, 0.15) 0 5px 15px;
 
 	position: relative;
-	backdrop-filter: blur(10px);
 
 	max-height: 60vh;
 	overflow-y: auto;
