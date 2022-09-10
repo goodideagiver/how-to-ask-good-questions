@@ -7,6 +7,27 @@
 .progWrapper {
 	width: 100%;
 	background-color: #424549;
+	background: linear-gradient(
+		60deg,
+		rgba(255, 255, 255, 0.1) 30%,
+		transparent 35%,
+		transparent 60%,
+		rgba(255, 255, 255, 0.1) 65%
+	);
+	background-size: 5%;
+	animation: barScrollAnim 20s infinite linear;
+	border-radius: 1rem;
+	overflow: hidden;
+	border: 1px gray solid;
+}
+
+@keyframes barScrollAnim {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
 }
 
 .prog {
@@ -20,7 +41,7 @@
 .complete {
 	.prog {
 		animation: complete 0.5s ease-in-out;
-		background-color: rgb(83, 147, 61);
+		background-color: rgb(77, 219, 64);
 		transition: 0.3s;
 	}
 }
