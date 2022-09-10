@@ -1,0 +1,15 @@
+.comment {
+	margin: 0;
+	animation: fadeIn 0.5s 0.5s ease-in-out backwards;
+	color: black;
+	font-weight: bold;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

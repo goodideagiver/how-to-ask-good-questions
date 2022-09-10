@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import classes from './FormProgress.module.scss';
+import { PercentageComment } from './PercentageComment';
 import { useFormClasses } from './useFormProgressClasses.hook';
 
 type Props = {
@@ -12,12 +12,6 @@ const MIN_PERCENTAGE = 0;
 export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 	const { classNames } = useFormClasses(MAX_PERCENTAGE, percentage);
 
-	const { t } = useTranslation();
-
-	const completionComment = t('completionComment');
-
-	const overcompletionComment = t('overcompletionComment');
-
 	return (
 		<div className={classNames}>
 			<div className={classes.progWrapper}>
@@ -28,12 +22,10 @@ export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 						maxWidth: `${MAX_PERCENTAGE}%`,
 					}}
 				>
-					{percentage === MAX_PERCENTAGE && (
-						<p className={classes.comment}>{completionComment}</p>
-					)}
-					{percentage > MAX_PERCENTAGE && (
-						<p className={classes.comment}>{overcompletionComment}</p>
-					)}
+					<PercentageComment
+						maxPercentage={MAX_PERCENTAGE}
+						percentage={percentage}
+					/>
 				</div>
 			</div>
 		</div>
