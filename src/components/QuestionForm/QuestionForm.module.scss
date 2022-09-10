@@ -20,5 +20,12 @@
 	.root {
 		box-shadow: none;
 		max-height: none;
+		gap: 4rem;
+	}
+}
+
+@supports not (gap: 5rem) {
+	.root > * {
+		margin-bottom: 4rem;
 	}
 }
