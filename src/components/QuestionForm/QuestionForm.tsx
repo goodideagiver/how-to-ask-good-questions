@@ -41,7 +41,7 @@ export const QuestionForm = () => {
 	const hasFields = fields && fields.length > 0;
 
 	const filledFieldsCount: number = hasFields
-		? fields.filter((field) => field.value).length
+		? fields.filter((field) => field.value && field.value.trim()).length
 		: 0;
 
 	const formRef = useRef<HTMLFormElement>(null);

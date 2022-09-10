@@ -35,7 +35,7 @@ const messageReducer = (state: FormInput, action: FormAction) => {
 			[action.payload.objectKey]: {
 				name: action.payload.name,
 				value: action.payload.value,
-				touched: true,
+				touched: action.payload.value.trim().length > 0,
 			},
 		};
 	}
@@ -97,7 +97,9 @@ export const useQuestionForm = () => {
 	const messageGenerator = () => {
 		let formattedMessage = '';
 
-		const filledFields = Object.values(state).filter((el) => el.value);
+		const filledFields = Object.values(state).filter(
+			(el) => el.value && el.value.trim() !== ''
+		);
 
 		filledFields.forEach((field) => {
 			const row = `**${field.name}**\n${field.value}\n\n`;
