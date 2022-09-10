@@ -17,13 +17,13 @@ export const FormOutput = ({ hasMessage, message }: Props) => {
 	return (
 		<div className={outputCss}>
 			<p>{t('outputPreview')}:</p>
-			<p className={classes.output}>
+			<div className={classes.output}>
 				{hasMessage ? (
 					<ReactMarkdown className={classes.markdown}>{message}</ReactMarkdown>
 				) : (
 					<p className={classes.empty}>{t('noData')}</p>
 				)}
-			</p>
+			</div>
 		</div>
 	);
 };
