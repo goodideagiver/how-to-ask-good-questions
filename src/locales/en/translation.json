@@ -1,5 +1,5 @@
 {
-  "completionComment":"Congratulations! This question is good!",
+  "completionComment":"Good question!",
     "overcompletionComment":"GREAT QUESTION!",
   "mainTitle":"How to ask good questions?",
   "inputs": {
@@ -29,7 +29,7 @@
     "copy": "Copy",
     "reset": "Reset"
   },
-  "chooseLanguage": "Choose a language",
+  "chooseLanguage": "Choose language",
   "outputPreview": "Output preview",
   "noData": "You need to enter data in at least one of the fields"
 }
