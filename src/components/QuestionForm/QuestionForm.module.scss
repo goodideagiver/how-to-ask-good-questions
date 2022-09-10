@@ -4,7 +4,6 @@
 	display: flex;
 	gap: 2rem;
 	flex-direction: column;
-	box-shadow: rgba(0, 0, 0, 0.15) 0 5px 15px;
 
 	position: relative;
 
@@ -15,4 +14,11 @@
 
 .rootScrolled {
 	padding-top: 0;
+}
+
+@media (max-width: 768px) {
+	.root {
+		box-shadow: none;
+		max-height: none;
+	}
 }

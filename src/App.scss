@@ -10,3 +10,14 @@
 .card {
 	padding: 2em;
 }
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 2rem;
+	}
+
+	#root {
+		margin: 0 auto;
+		padding: 2rem 0.9rem;
+	}
+}
