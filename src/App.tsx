@@ -8,7 +8,7 @@ function App() {
 
 	return (
 		<>
-			<h1>{t('mainTitle')}</h1>
+			<h1 className='title'>{t('mainTitle')}</h1>
 			<QuestionForm />
 		</>
 	);
