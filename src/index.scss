@@ -19,6 +19,10 @@
 	outline: 6px #aa66ff solid !important;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 a {
 	font-weight: 500;
 	color: #646cff;
@@ -34,6 +38,7 @@ body {
 	place-items: center;
 	min-width: 320px;
 	overflow-x: hidden;
+	color: white;
 }
 
 ::-webkit-scrollbar {
@@ -63,6 +68,7 @@ button {
 	background-color: #1a1a1a;
 	cursor: pointer;
 	transition: border-color 0.25s;
+	color: white;
 
 	padding: 1rem;
 	border-radius: 1rem;
@@ -73,17 +79,4 @@ button:hover {
 button:focus,
 button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
 }
