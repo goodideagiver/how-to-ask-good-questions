@@ -25,6 +25,7 @@
 	},
 	"homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
 	"devDependencies": {
+		"@testing-library/react": "^13.4.0",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
 		"@typescript-eslint/eslint-plugin": "^5.36.1",
