@@ -1,35 +1,36 @@
 {
-  "name": "how-to-ask-good-questions",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint",
-    "deploy": "npm run build && gh-pages -d dist"
-  },
-  "dependencies": {
-    "gh-pages": "^4.0.0",
-    "i18next": "^21.9.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-i18next": "^11.18.5",
-    "react-markdown": "^8.0.3",
-    "sass": "^1.54.5"
-  },
-  "homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
-  "devDependencies": {
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "@vitejs/plugin-react": "^2.0.1",
-    "eslint": "^8.23.0",
-    "eslint-plugin-react": "^7.31.2",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.7",
-    "vite-plugin-eslint": "^1.8.1"
-  }
+	"name": "how-to-ask-good-questions",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"lint": "eslint",
+		"deploy": "npm run build && gh-pages -d dist",
+		"ts:check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"gh-pages": "^4.0.0",
+		"i18next": "^21.9.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-i18next": "^11.18.5",
+		"react-markdown": "^8.0.3",
+		"sass": "^1.54.5"
+	},
+	"homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
+	"devDependencies": {
+		"@types/react": "^18.0.17",
+		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.36.1",
+		"@typescript-eslint/parser": "^5.36.1",
+		"@vitejs/plugin-react": "^2.0.1",
+		"eslint": "^8.23.0",
+		"eslint-plugin-react": "^7.31.2",
+		"typescript": "^4.6.4",
+		"vite": "^3.0.7",
+		"vite-plugin-eslint": "^1.8.1"
+	}
 }
