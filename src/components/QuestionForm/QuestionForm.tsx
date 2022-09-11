@@ -25,15 +25,6 @@ export const QuestionForm = () => {
 		hasMessage,
 	} = useQuestionForm();
 
-	const copyMessageHanlder = () => {
-		try {
-			if (!hasMessage) throw new Error('No message to copy');
-			navigator.clipboard.writeText(message);
-		} catch (error) {
-			alert('Could not copy message to clipboard.');
-		}
-	};
-
 	const { t } = useTranslation();
 
 	const fields = questionInputsState && Object.values(questionInputsState);
@@ -79,7 +70,8 @@ export const QuestionForm = () => {
 					/>
 				</OptionalInput>
 				<FormControls
-					copyMessageHanlder={copyMessageHanlder}
+					hasMessage={!!hasMessage}
+					message={message}
 					resetFormHandler={resetFormHandler}
 				/>
 			</form>
