@@ -12,8 +12,20 @@ export const resources = {
 	},
 } as const;
 
+const DECLARED_LANGUAGES = ['en', 'pl'];
+
+const handleLangLoad = () => {
+	const lang = localStorage.getItem('language') || 'en';
+	if (DECLARED_LANGUAGES.includes(lang)) {
+		return lang;
+	} else {
+		localStorage.setItem('language', 'en');
+		return 'en';
+	}
+};
+
 i18n.use(initReactI18next).init({
-	lng: localStorage.getItem('language') || 'en',
+	lng: handleLangLoad(),
 	interpolation: {
 		escapeValue: false,
 	},
@@ -21,4 +33,5 @@ i18n.use(initReactI18next).init({
 	react: {
 		useSuspense: false,
 	},
+	fallbackLng: 'en',
 });
