@@ -25,6 +25,7 @@
 	},
 	"homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
 	"devDependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
@@ -34,6 +35,7 @@
 		"@vitest/coverage-c8": "^0.23.2",
 		"eslint": "^8.23.0",
 		"eslint-plugin-react": "^7.31.2",
+		"jsdom": "^20.0.0",
 		"typescript": "^4.6.4",
 		"vite": "^3.0.7",
 		"vite-plugin-eslint": "^1.8.1",
