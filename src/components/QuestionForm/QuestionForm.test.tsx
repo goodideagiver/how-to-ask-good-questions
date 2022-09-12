@@ -30,4 +30,18 @@ describe('QuestionForm', () => {
 
 		expect(buttons).toHaveLength(expectedButtonsAmount);
 	});
+
+	test('should have 2 textareas if first textarea has text', () => {
+		render(<QuestionForm />);
+
+		const textarea = screen.getByRole('textbox') as HTMLTextAreaElement;
+
+		textarea.value = 'test';
+
+		const expectedTextareasCount = 2;
+
+		const textareas = screen.getAllByRole('textbox');
+
+		expect(textareas).toHaveLength(expectedTextareasCount);
+	});
 });
