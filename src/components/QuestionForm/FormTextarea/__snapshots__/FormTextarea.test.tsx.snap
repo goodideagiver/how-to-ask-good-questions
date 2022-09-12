@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`FormTextarea > should render 1`] = `
+<div>
+  <div
+    class="_root_83a020"
+  >
+    <label
+      class="_label_83a020"
+      for=":r0:"
+    >
+      asd
+    </label>
+    <textarea
+      class="_textarea_83a020"
+      id=":r0:"
+      placeholder="siem"
+    >
+      qwe
+    </textarea>
+  </div>
+</div>
+`;

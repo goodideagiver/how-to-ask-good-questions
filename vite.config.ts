@@ -9,5 +9,7 @@ export default defineConfig({
 	base: '/how-to-ask-good-questions/',
 	test: {
 		environment: 'jsdom',
+		globals: true,
+		setupFiles: ['src/setupTests.ts'],
 	},
 });
