@@ -13,6 +13,6 @@ describe('FormTextarea', () => {
 				value='qwe'
 			/>
 		);
-		expect(container).toMatchSnapshot();
+		expect(container).toBeInTheDocument();
 	});
 });
