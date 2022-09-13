@@ -6,6 +6,6 @@ describe('PercentageComment component', () => {
 	test('renders completion comment', () => {
 		render(<PercentageComment percentage={100} maxPercentage={100} />);
 
-		expect(screen.getAllByText('completionComment')).toBeInTheDocument();
+		expect(screen.getByText(/([A-Z])\w+/)).toBeInTheDocument();
 	});
 });
