@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, test } from 'vitest';
 import { QuestionForm } from './QuestionForm';
 
@@ -36,7 +36,7 @@ describe('QuestionForm', () => {
 
 		const textarea = screen.getByRole('textbox') as HTMLTextAreaElement;
 
-		textarea.value = 'test';
+		fireEvent.change(textarea, { target: { value: 'test' } });
 
 		const expectedTextareasCount = 2;
 
