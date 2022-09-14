@@ -1,0 +1,14 @@
+.root {
+	margin-top: 4rem;
+}
+
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	word-wrap: break-word;
+	justify-content: center;
+	gap: 2rem;
+}
