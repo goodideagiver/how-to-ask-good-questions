@@ -34,7 +34,7 @@ export const useCopyButtonState = (
 	}
 
 	useEffect(() => {
-		let timeout: null | number = null;
+		let timeout: null | ReturnType<typeof setTimeout> = null;
 
 		const resetStateHandler = () => {
 			buttonText = t(Text.Default);
