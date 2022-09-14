@@ -9,7 +9,10 @@
 		"preview": "vite preview",
 		"lint": "eslint",
 		"deploy": "npm run build && gh-pages -d dist",
-		"ts:check": "tsc --noEmit"
+		"ts:check": "tsc --noEmit",
+		"test": "vitest",
+		"test:watch": "vitest --watch",
+		"coverage": "vitest run --coverage"
 	},
 	"dependencies": {
 		"gh-pages": "^4.0.0",
@@ -22,15 +25,20 @@
 	},
 	"homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
 	"devDependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
 		"@typescript-eslint/eslint-plugin": "^5.36.1",
 		"@typescript-eslint/parser": "^5.36.1",
 		"@vitejs/plugin-react": "^2.0.1",
+		"@vitest/coverage-c8": "^0.23.2",
 		"eslint": "^8.23.0",
 		"eslint-plugin-react": "^7.31.2",
+		"jsdom": "^20.0.0",
 		"typescript": "^4.6.4",
 		"vite": "^3.0.7",
-		"vite-plugin-eslint": "^1.8.1"
+		"vite-plugin-eslint": "^1.8.1",
+		"vitest": "^0.23.2"
 	}
 }

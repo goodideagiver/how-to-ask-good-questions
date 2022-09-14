@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -5,4 +7,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
 	plugins: [react()],
 	base: '/how-to-ask-good-questions/',
+	test: {
+		environment: 'jsdom',
+		globals: true,
+		setupFiles: ['src/setupTests.ts'],
+	},
 });
