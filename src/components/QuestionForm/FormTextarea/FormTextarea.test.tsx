@@ -1,19 +1,19 @@
-import { render } from '@testing-library/react';
+import { getByText, render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FormTextarea } from './FormTextarea';
 
 describe('FormTextarea', () => {
-	it('should render', () => {
+	it('should have initial value', () => {
 		const { container } = render(
 			<FormTextarea
 				label='asd'
 				objectKey='asd'
 				onChange={() => void 0}
 				placeholder='siem'
-				value='qwe'
+				value='test value'
 			/>
 		);
-		expect(container).toBeInTheDocument();
+		expect(getByText(container, 'test value')).toBeInTheDocument();
 	});
 
 	it('should have label with test content', () => {
