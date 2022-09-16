@@ -12,7 +12,7 @@ export const resources = {
 	},
 } as const;
 
-const DECLARED_LANGUAGES = ['en', 'pl'];
+export const DECLARED_LANGUAGES = ['en', 'pl'];
 
 const handleLangLoad = () => {
 	const lang = localStorage.getItem('language') || 'en';
