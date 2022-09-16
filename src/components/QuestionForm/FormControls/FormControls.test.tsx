@@ -58,6 +58,6 @@ describe('Form controls', () => {
 
 		fireEvent.click(copyButton);
 
-		expect(copyButton).toHaveTextContent('error');
+		expect(copyButton).toHaveTextContent(/error/i);
 	});
 });
