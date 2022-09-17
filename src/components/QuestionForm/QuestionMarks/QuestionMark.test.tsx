@@ -1,12 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe } from 'vitest';
 import { QuestionMark } from './QuestionMark';
 
 describe('QuestionMark', () => {
 	it('renders with passed className', () => {
-		render(<QuestionMark className='testCss' />);
+		const expectedCss = 'testCss';
 
-		const questionMark = document.querySelector('.testCss');
+		render(<QuestionMark className={expectedCss} />);
+
+		const questionMark = document.querySelector(`.${expectedCss}`);
 
 		expect(questionMark).toBeTruthy();
 	});
