@@ -16,6 +16,7 @@ export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
 		<div className={classNames}>
 			<div className={classes.progWrapper}>
 				<div
+					aria-label='progress bar'
 					className={classes.prog}
 					style={{
 						width: `${percentage}%`,
