@@ -7,9 +7,8 @@ type Props = {
 };
 
 export const MAX_PERCENTAGE = 100;
-const MIN_PERCENTAGE = 0;
 
-export const FormProgress = ({ percentage = MIN_PERCENTAGE }: Props) => {
+export const FormProgress = ({ percentage }: Props) => {
 	const { classNames } = useFormClasses(MAX_PERCENTAGE, percentage);
 
 	return (
