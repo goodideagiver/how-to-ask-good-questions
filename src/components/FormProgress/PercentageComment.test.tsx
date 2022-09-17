@@ -8,4 +8,10 @@ describe('PercentageComment component', () => {
 
 		expect(screen.getByText(/([A-Z])\w+/)).toBeInTheDocument();
 	});
+
+	test('renders completion comment', () => {
+		render(<PercentageComment percentage={120} maxPercentage={100} />);
+
+		expect(screen.getByText(/([A-Z])\w+/)).toBeInTheDocument();
+	});
 });
