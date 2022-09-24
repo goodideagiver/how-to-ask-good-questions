@@ -38,6 +38,8 @@
 	height: 25px;
 	margin: 0;
 	background-color: #fff;
+	display: grid;
+	place-items: center;
 }
 
 .complete {
@@ -102,15 +104,18 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 	.root {
 		position: fixed;
-		top: 0;
-		left: 0;
 		width: 100%;
 		z-index: 100;
+		top: 0;
 	}
 	.progWrapper {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
 		border-radius: 0;
 		border: 0;
 		box-shadow: black 0 0 20px;
