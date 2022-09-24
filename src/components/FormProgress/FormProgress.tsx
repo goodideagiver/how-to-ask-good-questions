@@ -1,5 +1,5 @@
 import classes from './FormProgress.module.scss';
-import { PercentageComment } from './PercentageComment';
+import { ProgressBar } from './ProgressBar';
 import { useFormClasses } from './useFormProgressClasses.hook';
 
 type Props = {
@@ -14,19 +14,7 @@ export const FormProgress = ({ percentage }: Props) => {
 	return (
 		<div className={classNames}>
 			<div className={classes.progWrapper}>
-				<div
-					aria-label='progress bar'
-					className={classes.prog}
-					style={{
-						width: `${percentage}%`,
-						maxWidth: `${MAX_PERCENTAGE}%`,
-					}}
-				>
-					<PercentageComment
-						maxPercentage={MAX_PERCENTAGE}
-						percentage={percentage}
-					/>
-				</div>
+				<ProgressBar percentage={percentage} />
 			</div>
 		</div>
 	);
