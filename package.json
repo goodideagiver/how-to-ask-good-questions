@@ -10,7 +10,7 @@
 		"lint": "eslint",
 		"deploy": "npm run build && gh-pages -d dist",
 		"ts:check": "tsc --noEmit",
-		"test": "vitest",
+		"test": "vitest --globals",
 		"test:watch": "vitest --watch",
 		"coverage": "vitest run --coverage"
 	},
