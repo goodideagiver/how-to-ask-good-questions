@@ -3,6 +3,11 @@ import { describe, vi } from 'vitest';
 import { OVERLAY_ROOT_DOM_ID } from '../../HOC/Portal/Portal';
 import { FormProgress } from './FormProgress';
 
+beforeAll(() => {
+	document.body.innerHTML =
+		'<div id="root"></div><div id="overlay-root"></div>';
+});
+
 describe('FormProgress', () => {
 	it('should have 0% width style', () => {
 		render(<FormProgress percentage={0} />);
