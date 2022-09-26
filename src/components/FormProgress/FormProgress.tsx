@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const MAX_PERCENTAGE = 100;
-const MAX_PIXELS_WIDTH = 800;
+export const MAX_PIXELS_WIDTH = 800;
 
 export const FormProgress = ({ percentage }: Props) => {
 	const { classNames } = useFormClasses(MAX_PERCENTAGE, percentage);

@@ -4,7 +4,7 @@ type Props = {
 	children: React.ReactNode;
 };
 
-const OVERLAY_ROOT_DOM_ID = 'overlay-root';
+export const OVERLAY_ROOT_DOM_ID = 'overlay-root';
 
 export const Portal = ({ children }: Props) => {
 	const portalContainer = document.getElementById(OVERLAY_ROOT_DOM_ID);
