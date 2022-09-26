@@ -15,7 +15,7 @@ describe('useCopyHandler hook', () => {
 		expect(result.current.copyState).toBe(CopyState.Default);
 	});
 
-	test('copyMessageHanlder', async () => {
+	test('copyMessageHandler', async () => {
 		const { result } = renderHook(() => useCopyHandler(true, 'test'));
 		result.current.copyMessageHanlder();
 		await waitFor(() =>
