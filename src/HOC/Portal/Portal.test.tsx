@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Portal } from './Portal';
 
 describe('Portal HOC', () => {
@@ -23,8 +23,6 @@ describe('Portal HOC', () => {
 			</Portal>
 		);
 
-		const portal = document.getElementById('overlay-root');
-
-		expect(portal?.innerHTML).toBe('<div>test</div>');
+		expect(screen.getByText('test')).toBeInTheDocument();
 	});
 });
