@@ -1,4 +1,11 @@
-import { ReactNode, useEffect, useId, useState } from 'react';
+import {
+	KeyboardEventHandler,
+	ReactNode,
+	useEffect,
+	useId,
+	useState,
+} from 'react';
+import { cssBool, cssClass } from '../../../helpers/cssClass.helper';
 import classes from './OptionalInput.module.scss';
 
 type Props = {
@@ -12,8 +19,15 @@ export const OptionalInput = ({ children, onHide, label }: Props) => {
 
 	const checkboxLabel = useId();
 
-	const checkboxChangeHandler = () => {
+	const checkboxChangeHandler = (event) => {
+		event.preventDefault();
 		setActive(!active);
+	};
+
+	const enterKeydownHandler = (event: KeyboardEvent) => {
+		if (event.key === 'Enter') {
+			setActive(!active);
+		}
 	};
 
 	useEffect(() => {
@@ -22,9 +36,14 @@ export const OptionalInput = ({ children, onHide, label }: Props) => {
 		}
 	}, [active]);
 
+	const circleClasses = cssClass(
+		classes.circle,
+		cssBool(active, classes.circleChecked)
+	);
+
 	return (
 		<>
-			<div className={classes.root}>
+			<button onClick={checkboxChangeHandler} className={classes.root}>
 				<label className={classes.label} htmlFor={checkboxLabel}>
 					<span>{label}</span>
 				</label>
@@ -34,14 +53,11 @@ export const OptionalInput = ({ children, onHide, label }: Props) => {
 						type='checkbox'
 						id={checkboxLabel}
 						onChange={checkboxChangeHandler}
+						value={active ? 1 : 0}
 					></input>
-					<label
-						tabIndex={0}
-						className={classes.circle}
-						htmlFor={checkboxLabel}
-					></label>
+					<label className={circleClasses} htmlFor={checkboxLabel}></label>
 				</div>
-			</div>
+			</button>
 			{active && children}
 		</>
 	);

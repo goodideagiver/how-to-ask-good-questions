@@ -4,6 +4,9 @@
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
+	background-color: transparent;
+	padding: 0;
+	border: 0;
 }
 
 .label {
@@ -27,7 +30,7 @@
 	display: block;
 }
 
-.check:checked + .circle {
+.circleChecked {
 	background-color: #ccc;
 }
 
