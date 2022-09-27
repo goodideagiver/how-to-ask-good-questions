@@ -1,6 +1,14 @@
 import { getByText, render } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { FormTextarea } from './FormTextarea';
+
+vi.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t: (key: string) => {
+			return 'hello' + key;
+		},
+	}),
+}));
 
 describe('FormTextarea', () => {
 	it('should have initial value', () => {

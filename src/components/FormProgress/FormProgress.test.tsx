@@ -8,6 +8,14 @@ beforeAll(() => {
 		'<div id="root"></div><div id="overlay-root"></div>';
 });
 
+vi.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t: (key: string) => {
+			return 'hello' + key;
+		},
+	}),
+}));
+
 describe('FormProgress', () => {
 	it('should have 0% width style', () => {
 		render(<FormProgress percentage={0} />);
