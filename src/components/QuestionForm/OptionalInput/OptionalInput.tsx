@@ -1,5 +1,6 @@
 import {
 	KeyboardEventHandler,
+	MouseEvent,
 	ReactNode,
 	useEffect,
 	useId,
@@ -19,15 +20,9 @@ export const OptionalInput = ({ children, onHide, label }: Props) => {
 
 	const checkboxLabel = useId();
 
-	const checkboxChangeHandler = (event) => {
+	const checkboxChangeHandler = (event: MouseEvent) => {
 		event.preventDefault();
 		setActive(!active);
-	};
-
-	const enterKeydownHandler = (event: KeyboardEvent) => {
-		if (event.key === 'Enter') {
-			setActive(!active);
-		}
 	};
 
 	useEffect(() => {
