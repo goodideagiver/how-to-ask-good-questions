@@ -1,12 +1,7 @@
-import {
-	ChangeEvent,
-	MouseEvent,
-	ReactNode,
-	useEffect,
-	useId,
-	useState,
-} from 'react';
-import { cssBool, cssClass } from '../../../helpers/cssClass.helper';
+import { ReactNode } from 'react';
+import { CheckboxLabel } from './CheckboxLabel';
+import { InputControls } from './InputControls';
+import { useOptionalInput } from './OptionalInput.hook';
 import classes from './OptionalInput.module.scss';
 
 type Props = {
@@ -16,44 +11,24 @@ type Props = {
 };
 
 export const OptionalInput = ({ children, onHide, label }: Props) => {
-	const [active, setActive] = useState(false);
-
-	const checkboxLabel = useId();
-
-	const checkboxChangeHandler = (event: MouseEvent | ChangeEvent) => {
-		event.preventDefault();
-		setActive(!active);
-	};
-
-	useEffect(() => {
-		if (!active) {
-			onHide();
-		}
-	}, [active]);
-
-	const circleClasses = cssClass(
-		classes.circle,
-		cssBool(active, classes.circleChecked)
-	);
+	const {
+		checkboxChangeHandler,
+		checkboxId,
+		childrenIsVisible,
+		labelButtonClickHandler,
+	} = useOptionalInput(onHide);
 
 	return (
 		<>
-			<button onClick={checkboxChangeHandler} className={classes.root}>
-				<label className={classes.label} htmlFor={checkboxLabel}>
-					<span>{label}</span>
-				</label>
-				<div className={classes.controls}>
-					<input
-						className={classes.check}
-						type='checkbox'
-						id={checkboxLabel}
-						onChange={checkboxChangeHandler}
-						value={active ? 1 : 0}
-					></input>
-					<label className={circleClasses} htmlFor={checkboxLabel}></label>
-				</div>
+			<button onClick={labelButtonClickHandler} className={classes.root}>
+				<CheckboxLabel checkboxId={checkboxId} label={label} />
+				<InputControls
+					checkboxChangeHandler={checkboxChangeHandler}
+					checkboxId={checkboxId}
+					childrenIsVisible={childrenIsVisible}
+				/>
 			</button>
-			{active && children}
+			{childrenIsVisible && children}
 		</>
 	);
 };

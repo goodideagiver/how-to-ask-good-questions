@@ -21,8 +21,8 @@ describe('QuestionForm', () => {
 		expect(textareas).toHaveLength(1);
 	});
 
-	it('should have 2 buttons', () => {
-		const expectedButtonsAmount = 2;
+	it('should have 3 buttons', () => {
+		const expectedButtonsAmount = 3;
 
 		const buttons = screen.getAllByRole('button');
 
