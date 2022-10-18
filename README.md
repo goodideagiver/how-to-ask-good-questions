@@ -8,10 +8,12 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.imgur.com/ewbTCjJ.png" alt="project-screenshot" width="" height="400/">
-
-<img src="https://i.imgur.com/jVqqNMP.png" alt="project-screenshot" width="200" height="400/">
-
+<span>
+<img height="400px" src="https://i.imgur.com/ewbTCjJ.png" alt="project-screenshot" width="" height="400/">
+</span>
+<span>
+<img display="inline-block" src="https://i.imgur.com/jVqqNMP.png" alt="project-screenshot" width="200" height="400/">
+</span>
   
   
 <h2>🧐 Features</h2>
