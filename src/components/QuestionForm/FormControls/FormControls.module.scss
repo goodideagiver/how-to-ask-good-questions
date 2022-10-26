@@ -4,10 +4,13 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+
 	button {
 		flex: 1 1 25%;
 	}
+
 	padding-bottom: 2rem;
+	white-space: nowrap;
 }
 
 .button {
@@ -28,15 +31,19 @@
 	0% {
 		transform: translateX(0);
 	}
+
 	25% {
 		transform: translateX(2px);
 	}
+
 	50% {
 		transform: translateX(-2px);
 	}
+
 	75% {
 		transform: translateX(2px);
 	}
+
 	100% {
 		transform: translateX(0);
 	}
@@ -46,13 +53,16 @@
 	0% {
 		scale: 1;
 	}
+
 	10% {
 		scale: 0.95;
 		filter: brightness(1.2);
 	}
+
 	60% {
 		filter: brightness(1.2);
 	}
+
 	100% {
 		scale: 1;
 		filter: brightness(1);

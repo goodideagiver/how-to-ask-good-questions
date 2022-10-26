@@ -1,29 +1,29 @@
-import i18next from 'i18next';
-import { ChangeEvent, useEffect, useRef } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage.hook';
+import i18next from 'i18next'
+import { useEffect, useState } from 'react'
+import { useLocalStorage } from '../../hooks/useLocalStorage.hook'
 
 export const useLanguageSelect = () => {
-	const { setItem, value } = useLocalStorage('language');
+  const [selectValue, setSelectValue] = useState('')
 
-	const selectRef = useRef<HTMLSelectElement>(null);
+  const { setItem, value } = useLocalStorage('language')
 
-	const langChangeHandler = (lang: string) => {
-		i18next.changeLanguage(lang);
-		setItem(lang);
-	};
+  const langChangeHandler = (lang: string) => {
+    i18next.changeLanguage(lang)
+    setItem(lang)
+  }
 
-	const selectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-		if (event.target.value.trim().length > 0) {
-			langChangeHandler(event.target.value);
-		}
-	};
+  const selectHandler = (newLang: string) => {
+    if (newLang.trim().length > 0) {
+      langChangeHandler(newLang)
+    }
+  }
 
-	useEffect(() => {
-		if (selectRef.current && value) {
-			selectRef.current.value = value;
-			langChangeHandler(value);
-		}
-	}, [value]);
+  useEffect(() => {
+    if (value) {
+      setSelectValue(value)
+      langChangeHandler(value)
+    }
+  }, [value])
 
-	return { selectHandler, selectRef };
-};
+  return { selectHandler, selectValue }
+}
