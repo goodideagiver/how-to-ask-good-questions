@@ -20,9 +20,7 @@ export const getFormattedMessage = (
 ): string => {
   return messages
     .map((message) => {
-      const question = message.question.replace(/\n/g, ' ')
-      const answer = message.answer.replace(/\n/g, ' ')
-
+      const { question, answer } = message
       return getFormattedLine(question, answer, formatting)
     })
     .join('\n\n')
