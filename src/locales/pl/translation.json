@@ -1,39 +1,44 @@
 {
-	"completionComment": "Dobre pytanie!",
-	"overcompletionComment": "ŚWIETNE PYTANIE!",
-	"mainTitle": "Jak zadawać dobre pytania?",
-	"inputs": {
-		"topic": {
-			"label": "Główny temat",
-			"placeholder": "useState nie jest zsynchronizowany ze zmianą inputa"
-		},
-		"technologies": {
-			"label": "Technologie, które dotyczą problemu",
-			"placeholder": "Redux, React, Typescript"
-		},
-		"expected": {
-			"label": "Co powinno się dziać vs co się dzieje?",
-			"placeholder": "Kiedy wprowadzę wiadomość i kliknę kopiuj, to powinna się skopiować do schowka ale jest pusty."
-		},
-		"whatTried": {
-			"label": "Czego próbowałeś/próbowałaś żeby rozwiązać problem?",
-			"placeholder": "Próbowałem/łam używając useState"
-		},
-		"sources": {
-			"label": "Z jakich źródeł próbowałeś/łaś korzystać w celu rozwiązania problemu?",
-			"placeholder": "Próbowałem/łam rozwiązania napisanego w artykule https://reactjs.org/docs/hooks-reference.html, ale nie działało, bo w linijce 8 wyświetla się taki komunikat: \"useState is not a function\""
-		}
-	},
-	"usedTechnologies": "Wykorzystane technologie",
-	"mainButtons": {
-		"copy": "Kopiuj",
-		"copyStates": {
-			"error": "Błąd",
-			"success": "Skopiowano!"
-		},
-		"reset": "Wyczyść"
-	},
-	"chooseLanguage": "Wybierz język",
-	"outputPreview": "Podgląd",
-	"noData": "Musisz wypełnić przynajmniej jedno pole."
+  "completionComment": "Dobre pytanie!",
+  "overcompletionComment": "ŚWIETNE PYTANIE!",
+  "mainTitle": "Jak zadawać dobre pytania?",
+  "inputs": {
+    "topic": {
+      "label": "Główny temat",
+      "placeholder": "useState nie jest zsynchronizowany ze zmianą inputa"
+    },
+    "technologies": {
+      "label": "Technologie, które dotyczą problemu",
+      "placeholder": "Redux, React, Typescript"
+    },
+    "expected": {
+      "label": "Co powinno się dziać vs co się dzieje?",
+      "placeholder": "Kiedy wprowadzę wiadomość i kliknę kopiuj, to powinna się skopiować do schowka ale jest pusty."
+    },
+    "whatTried": {
+      "label": "Czego próbowałeś/próbowałaś żeby rozwiązać problem?",
+      "placeholder": "Próbowałem/łam używając useState"
+    },
+    "sources": {
+      "label": "Z jakich źródeł próbowałeś/łaś korzystać w celu rozwiązania problemu?",
+      "placeholder": "Próbowałem/łam rozwiązania napisanego w artykule https://reactjs.org/docs/hooks-reference.html, ale nie działało, bo w linijce 8 wyświetla się taki komunikat: \"useState is not a function\""
+    }
+  },
+  "usedTechnologies": "Wykorzystane technologie",
+  "mainButtons": {
+    "copy": "Kopiuj",
+    "copyStates": {
+      "error": "Błąd",
+      "success": "Skopiowano!"
+    },
+    "reset": "Wyczyść",
+    "formatting": {
+      "boldHeadings": "Pogrubione nagłówki",
+      "headingsAsHeadings": "Nagłówki Markdown",
+      "onlyNewLines": "Tylko nowe linie"
+    }
+  },
+  "chooseLanguage": "Wybierz język",
+  "outputPreview": "Podgląd",
+  "noData": "Musisz wypełnić przynajmniej jedno pole."
 }
