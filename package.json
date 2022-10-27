@@ -23,7 +23,8 @@
 		"react-dom": "^18.2.0",
 		"react-i18next": "^11.18.5",
 		"react-markdown": "^8.0.3",
-		"sass": "^1.54.5"
+		"sass": "^1.54.5",
+		"zustand": "^4.1.3"
 	},
 	"homepage": "https://goodideagiver.github.io/how-to-ask-good-questions",
 	"devDependencies": {
