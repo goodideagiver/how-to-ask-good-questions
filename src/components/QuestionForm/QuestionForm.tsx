@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cssClass } from '../../helpers/cssClass.helper'
 import { useScrollY } from '../../hooks/useScrollY.hook'
@@ -28,8 +28,13 @@ export const QuestionForm = () => {
   const { t } = useTranslation()
 
   const getFormattedMessage = useMessageStore((state) => state.formattedMessage)
+  const formatting = useMessageStore((state) => state.formatting)
 
-  const message = getFormattedMessage()
+  let message = getFormattedMessage()
+  useEffect(() => {
+    //this is bad code but it works
+    message = getFormattedMessage()
+  }, [formatting, questionInputsState])
 
   const fields = questionInputsState && Object.values(questionInputsState)
 

@@ -9,7 +9,7 @@ const getFormattedLine = (
     return `## ${question}\n${answer}`
   }
   if (formatting === MessageFormatting.onlyNewLines) {
-    return `${question}\n${answer}`
+    return `${question}\n\n${answer}`
   }
   return `**${question}**\n${answer}`
 }

@@ -24,6 +24,8 @@ export const useMessageStore = create<MessageState>()((set, get) => ({
   messages: [],
   formatting: MessageFormatting.boldHeadings,
   setMessages: (messages) => set({ messages }),
-  setFormatting: (formatting) => set({ formatting }),
+  setFormatting: (formatting) => {
+    set({ formatting })
+  },
   formattedMessage: () => getFormattedMessage(get().messages, get().formatting),
 }))
