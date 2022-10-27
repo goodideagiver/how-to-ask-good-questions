@@ -1,39 +1,44 @@
 {
-	"completionComment": "Good question!",
-	"overcompletionComment": "GREAT QUESTION!",
-	"mainTitle": "How to ask good questions?",
-	"inputs": {
-		"topic": {
-			"label": "Question Topic",
-			"placeholder": "useState not synchronized with input change"
-		},
-		"technologies": {
-			"label": "Used technologies that concern the question",
-			"placeholder": "Redux, React, Typescript"
-		},
-		"expected": {
-			"label": "What should be happening vs what is happening",
-			"placeholder": "When I input the message, and click the copy button, the message should be copied to the clipboard, but it is empty."
-		},
-		"whatTried": {
-			"label": "What did you try to solve the problem?",
-			"placeholder": "I tried to solve the problem by using the useState hook."
-		},
-		"sources": {
-			"label": "What sources did you read in order to solve the problem?",
-			"placeholder": "https://reactjs.org/docs/hooks-reference.html"
-		}
-	},
-	"usedTechnologies": "Used technologies",
-	"mainButtons": {
-		"copy": "Copy",
-		"copyStates": {
-			"error": "Error",
-			"success": "Copied"
-		},
-		"reset": "Reset"
-	},
-	"chooseLanguage": "Choose language",
-	"outputPreview": "Output preview",
-	"noData": "You need to enter data in at least one of the fields"
+  "completionComment": "Good question!",
+  "overcompletionComment": "GREAT QUESTION!",
+  "mainTitle": "How to ask good questions?",
+  "inputs": {
+    "topic": {
+      "label": "Question Topic",
+      "placeholder": "useState not synchronized with input change"
+    },
+    "technologies": {
+      "label": "Used technologies that concern the question",
+      "placeholder": "Redux, React, Typescript"
+    },
+    "expected": {
+      "label": "What should be happening vs what is happening",
+      "placeholder": "When I input the message, and click the copy button, the message should be copied to the clipboard, but it is empty."
+    },
+    "whatTried": {
+      "label": "What did you try to solve the problem?",
+      "placeholder": "I tried to solve the problem by using the useState hook."
+    },
+    "sources": {
+      "label": "What sources did you read in order to solve the problem?",
+      "placeholder": "https://reactjs.org/docs/hooks-reference.html"
+    }
+  },
+  "usedTechnologies": "Used technologies",
+  "mainButtons": {
+    "copy": "Copy",
+    "copyStates": {
+      "error": "Error",
+      "success": "Copied"
+    },
+    "reset": "Reset",
+    "formatting": {
+      "boldHeadings": "Bold headings",
+      "headingsAsHeadings": "Markdown headings",
+      "onlyNewLines": "New lines only"
+    }
+  },
+  "chooseLanguage": "Choose language",
+  "outputPreview": "Output preview",
+  "noData": "You need to enter data in at least one of the fields"
 }

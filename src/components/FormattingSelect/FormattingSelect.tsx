@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { MessageFormatting, useMessageStore } from '../../store/message-store'
 import { SelectUI } from '../../UI/Select'
 
@@ -9,14 +10,29 @@ export const FormattingSelect = () => {
     }
   })
 
+  const { t } = useTranslation()
+
+  const translatedOptions = Object.values(MessageFormatting).map(
+    (formatting) => {
+      return {
+        original: formatting,
+        translated: t(`mainButtons.formatting.${formatting}`),
+      }
+    }
+  )
   const selectHandler = (newFormatting: string) => {
-    setFormatting(newFormatting as MessageFormatting)
+    const originalOption = translatedOptions.find(
+      (option) => option.translated === newFormatting
+    )
+    if (originalOption) {
+      setFormatting(originalOption.original)
+    }
   }
 
   return (
     <SelectUI
-      value={formatting}
-      options={Object.values(MessageFormatting)}
+      value={t(`mainButtons.formatting.${formatting}`)}
+      options={translatedOptions.map((option) => option.translated)}
       buttonLabel='Set formatting'
       buttonText='Set formatting'
       labelOnOpen='Formatting'
