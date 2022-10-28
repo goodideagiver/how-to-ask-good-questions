@@ -1,5 +1,5 @@
 .root {
-	background-color: #2c2f33d7;
+	background-color: #42454984;
 	padding: 2rem;
 	display: flex;
 	gap: 2rem;
@@ -7,9 +7,13 @@
 
 	position: relative;
 
-	max-height: 60vh;
+	overflow: hidden;
 	overflow-y: auto;
 	transition: 0.1s;
+
+	border-radius: 1rem;
+
+	box-shadow: var(--box-shadow-main);
 }
 
 .rootScrolled {
@@ -25,7 +29,7 @@
 }
 
 @supports not (gap: 5rem) {
-	.root > * {
+	.root>* {
 		margin-bottom: 4rem;
 	}
 }

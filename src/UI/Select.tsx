@@ -2,6 +2,14 @@ import * as Select from '@radix-ui/react-select'
 
 import { styled } from '@stitches/react'
 
+const StyledGroupLabel = styled(Select.Label, {
+  padding: '0.5rem 0',
+  fontWeight: 'bold',
+  borderBottom: '1px solid #121212',
+  color: '#505050',
+  marginBottom: '0.5rem',
+})
+
 const StyledContent = styled(Select.Content, {
   width: '100%',
   backgroundColor: 'rgb(44, 47, 51)',
@@ -9,10 +17,13 @@ const StyledContent = styled(Select.Content, {
   border: '1px solid #121212',
   boxShadow: '0 0 5px #121212',
   overflow: 'hidden',
+  padding: '0 0.5rem',
+  paddingBottom: '0.5rem',
 })
 
 const StyledItem = styled(Select.Item, {
-  padding: '1rem 2rem',
+  padding: '0.5rem 1rem',
+  borderRadius: '8px',
   backgroundColor: 'rgb(44, 47, 51)',
   color: 'white',
   cursor: 'pointer',
@@ -44,7 +55,7 @@ export const SelectUI = ({
   const SelectItems = (
     <Select.Viewport>
       <Select.Group>
-        <Select.Label>{labelOnOpen}</Select.Label>
+        <StyledGroupLabel>{labelOnOpen}</StyledGroupLabel>
         {options.map((option) => (
           <StyledItem value={option} key={option}>
             <Select.ItemText>{option}</Select.ItemText>

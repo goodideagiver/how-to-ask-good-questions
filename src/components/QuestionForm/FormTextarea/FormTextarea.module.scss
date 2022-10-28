@@ -3,7 +3,8 @@
 
 	gap: 1rem;
 	align-items: center;
-	> * {
+
+	>* {
 		flex: 1;
 	}
 }
@@ -18,10 +19,15 @@
 	padding: 1rem;
 	resize: vertical;
 	max-height: 150px;
-	min-height: 50px;
 	height: fit-content;
-	background-color: #424549;
-	border: 0;
+	background-color: transparent;
+	border: 1px solid rgb(150, 150, 150);
+	color: white;
+	border-radius: 1rem;
+
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.398);
+	}
 }
 
 .animate {
@@ -33,6 +39,7 @@
 		opacity: 0;
 		transform: translate3d(0, -10px, 0);
 	}
+
 	to {
 		transform: translate3d(0, 0, 0);
 	}

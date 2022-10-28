@@ -2,6 +2,7 @@
   "completionComment": "Good question!",
   "overcompletionComment": "GREAT QUESTION!",
   "mainTitle": "How to ask good questions?",
+  "promoMessage": "Generate questions that are easier to answer!",
   "inputs": {
     "topic": {
       "label": "Question Topic",

@@ -10,7 +10,9 @@ export const LanguageSelect = () => {
 
   const { selectHandler, selectValue } = useLanguageSelect()
 
-  const options = DECLARED_LANGUAGES.map((lang) => lang.toLocaleLowerCase())
+  const options = DECLARED_LANGUAGES.map((lang) => lang)
+
+  const inputDisplayValue = selectValue
 
   return (
     <SelectUI
@@ -19,7 +21,7 @@ export const LanguageSelect = () => {
       labelOnOpen={t('chooseLanguage')}
       buttonText={t('chooseLanguage')}
       onChange={selectHandler}
-      value={selectValue}
+      value={inputDisplayValue}
     />
   )
 }
