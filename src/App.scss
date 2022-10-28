@@ -11,9 +11,18 @@
 	padding: 2em;
 }
 
+.promo-message {
+	margin-bottom: 1.5rem;
+	margin-top: .5rem;
+	font-style: italic;
+	opacity: 0.7;
+}
+
 @media (max-width: 768px) {
 	.title {
-		font-size: 2rem;
+		font-size: 1.7rem;
+		text-align: center;
+		margin: 0;
 	}
 
 	#root {

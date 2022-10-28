@@ -1,29 +1,29 @@
-import { useTranslation } from 'react-i18next';
-import ReactMarkdown from 'react-markdown';
-import { cssBool, cssClass } from '../../../helpers/cssClass.helper';
+import { useTranslation } from 'react-i18next'
+import ReactMarkdown from 'react-markdown'
+import { cssBool, cssClass } from '../../../helpers/cssClass.helper'
 
-import classes from './FormOutput.module.scss';
+import classes from './FormOutput.module.scss'
 
 type Props = {
-	hasMessage: boolean;
-	message: string;
-};
+  hasMessage: boolean
+  message: string
+}
 
 export const FormOutput = ({ hasMessage, message }: Props) => {
-	const { t } = useTranslation();
+  const { t } = useTranslation()
 
-	const outputCss = cssClass(classes.right, cssBool(!message, classes.hidden));
+  const outputCss = cssClass(classes.right, cssBool(!message, classes.hidden))
 
-	return (
-		<div className={outputCss}>
-			<p>{t('outputPreview')}:</p>
-			<div className={classes.output}>
-				{hasMessage ? (
-					<ReactMarkdown className={classes.markdown}>{message}</ReactMarkdown>
-				) : (
-					<p className={classes.empty}>{t('noData')}</p>
-				)}
-			</div>
-		</div>
-	);
-};
+  return (
+    <div className={outputCss}>
+      <p className={classes['output-title']}>{t('outputPreview')}:</p>
+      <div className={classes.output}>
+        {hasMessage ? (
+          <ReactMarkdown className={classes.markdown}>{message}</ReactMarkdown>
+        ) : (
+          <p className={classes.empty}>{t('noData')}</p>
+        )}
+      </div>
+    </div>
+  )
+}
