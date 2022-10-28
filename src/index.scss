@@ -13,6 +13,8 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+
+	--box-shadow-main: rgb(0 0 0 / 40%) 0px 7px 29px 0px;
 }
 
 *:focus-visible {
@@ -40,6 +42,15 @@ body {
 	min-width: 320px;
 	overflow-x: hidden;
 	color: white;
+}
+
+body {
+	font-size: 16px;
+}
+
+input,
+select {
+	font-size: 100%;
 }
 
 ::-webkit-scrollbar {

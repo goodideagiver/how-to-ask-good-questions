@@ -1,5 +1,6 @@
 .right {
 	position: relative;
+
 }
 
 .hidden {
@@ -13,11 +14,14 @@
 	color: white;
 	background-color: #424549;
 	border-radius: 1rem;
+	box-shadow: var(--box-shadow-main);
+
 	.markdown {
 		p {
 			margin: 0;
 			margin-bottom: 1.2rem;
 		}
+
 		strong {
 			display: block;
 			font-size: 1.2rem;
@@ -37,6 +41,7 @@
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
