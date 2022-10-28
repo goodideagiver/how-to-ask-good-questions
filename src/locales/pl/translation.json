@@ -2,6 +2,7 @@
   "completionComment": "Dobre pytanie!",
   "overcompletionComment": "ŚWIETNE PYTANIE!",
   "mainTitle": "Jak zadawać dobre pytania?",
+  "promoMessage": "Twórz pytania, na które aż chce się odpowiadać!",
   "inputs": {
     "topic": {
       "label": "Główny temat",
