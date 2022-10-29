@@ -8,25 +8,22 @@
 .progWrapper {
 	width: 100%;
 	background-color: #4245498a;
-	background: linear-gradient(
-		60deg,
-		rgba(255, 255, 255, 0.1) 30%,
-		rgba(0, 0, 0, 0.1) 35%,
-		rgba(0, 0, 0, 0.1) 60%,
-		rgba(255, 255, 255, 0.1) 65%
-	);
+	background: linear-gradient(60deg,
+			rgba(255, 255, 255, 0.1) 30%,
+			rgba(0, 0, 0, 0.1) 35%,
+			rgba(0, 0, 0, 0.1) 60%,
+			rgba(255, 255, 255, 0.1) 65%);
 	background-size: 10%;
 	animation: barScrollAnim 20s infinite linear;
 	border-radius: 1rem;
 	overflow: hidden;
-	border: 1px gray solid;
-	backdrop-filter: blur(10px);
 }
 
 @keyframes barScrollAnim {
 	from {
 		background-position: 0 0;
 	}
+
 	to {
 		background-position: 100% 0;
 	}
@@ -35,7 +32,7 @@
 .prog {
 	transition: 1s;
 	width: 100%;
-	height: 25px;
+	height: 45px;
 	margin: 0;
 	background-color: #fff;
 	display: grid;
@@ -45,7 +42,9 @@
 .complete {
 	.prog {
 		animation: complete 0.5s ease-in-out;
-		background-color: rgb(77, 219, 64);
+		background-image: linear-gradient(to right,
+				hsl(120, 100%, 50%), hsl(120, 90%, 35%),
+				hsl(120, 100%, 50%));
 		transition: 0.3s;
 	}
 }
@@ -57,16 +56,15 @@
 
 .overcomplete {
 	.prog {
-		animation: overcomplete 2s infinite, overcomplete2 0.5s ease-in-out;
+		animation: overcomplete 2s infinite linear, overcomplete2 0.5s ease-in-out;
 		background-color: #4158d0;
-		background-image: linear-gradient(
-			43deg,
-			#4158d0 0%,
-			#c850c0 46%,
-			#ffcc70 100%
-		);
+		background-image: repeating-linear-gradient(to right,
+				hsl(230, 40%, 34%),
+				hsl(39, 100%, 22%),
+				hsl(230, 40%, 34%));
 
-		background-size: 200%;
+		background-size: 200% auto;
+		background-position: 0 100%;
 	}
 }
 
@@ -74,9 +72,11 @@
 	0% {
 		filter: brightness(1);
 	}
+
 	50% {
 		filter: brightness(2);
 	}
+
 	100% {
 		filter: brightness(1);
 	}
@@ -84,10 +84,11 @@
 
 @keyframes overcomplete {
 	0% {
-		background-position: left;
+		background-position: 0 0;
 	}
-	50% {
-		background-position: right;
+
+	100% {
+		background-position: -200% 0;
 	}
 }
 
@@ -95,10 +96,12 @@
 	0% {
 		filter: brightness(1);
 	}
+
 	50% {
 		filter: brightness(2);
 		transform: scale(1.1);
 	}
+
 	100% {
 		filter: brightness(1);
 	}
@@ -111,6 +114,11 @@
 		z-index: 100;
 		top: 0;
 	}
+
+	.prog {
+		height: 35px;
+	}
+
 	.progWrapper {
 		width: 100%;
 		position: absolute;
@@ -118,6 +126,5 @@
 		left: 0;
 		border-radius: 0;
 		border: 0;
-		box-shadow: black 0 0 20px;
 	}
 }
