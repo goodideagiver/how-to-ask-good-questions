@@ -1,5 +1,5 @@
 .root {
-	background-color: #42454984;
+	background-color: #ffffff15;
 	padding: 2rem;
 	display: flex;
 	gap: 2rem;
@@ -14,6 +14,7 @@
 	border-radius: 1rem;
 
 	box-shadow: var(--box-shadow-main);
+	backdrop-filter: blur(10px);
 }
 
 .rootScrolled {
