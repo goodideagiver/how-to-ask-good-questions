@@ -23,7 +23,7 @@ export const FormControls = ({
 }: Props) => {
   const { t } = useTranslation()
 
-  const { copyMessageHanlder, copyState, resetCopyButtonState } =
+  const { copyMessageHandler, copyState, resetCopyButtonState } =
     useCopyHandler(hasMessage, message)
 
   const { buttonClassNames, buttonText } = useCopyButtonState(
@@ -35,7 +35,7 @@ export const FormControls = ({
     <div className={classes.controls}>
       <button
         className={buttonClassNames}
-        onClick={copyMessageHanlder}
+        onClick={copyMessageHandler}
         type='button'
       >
         {buttonText}

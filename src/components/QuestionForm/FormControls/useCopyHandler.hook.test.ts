@@ -1,25 +1,25 @@
-import { renderHook, waitFor } from '@testing-library/react';
-import { expect } from 'vitest';
-import { CopyState } from './FormControls';
-import { useCopyHandler } from './useCopyHandler.hook';
+import { renderHook, waitFor } from '@testing-library/react'
+import { expect } from 'vitest'
+import { CopyState } from './FormControls'
+import { useCopyHandler } from './useCopyHandler.hook'
 
 Object.assign(navigator, {
-	clipboard: {
-		writeText: () => void 0,
-	},
-});
+  clipboard: {
+    writeText: () => void 0,
+  },
+})
 
 describe('useCopyHandler hook', () => {
-	it('should return default state', () => {
-		const { result } = renderHook(() => useCopyHandler(false, ''));
-		expect(result.current.copyState).toBe(CopyState.Default);
-	});
+  it('should return default state', () => {
+    const { result } = renderHook(() => useCopyHandler(false, ''))
+    expect(result.current.copyState).toBe(CopyState.Default)
+  })
 
-	test('copyMessageHandler', async () => {
-		const { result } = renderHook(() => useCopyHandler(true, 'test'));
-		result.current.copyMessageHanlder();
-		await waitFor(() =>
-			expect(result.current.copyState).toBe(CopyState.Success)
-		);
-	});
-});
+  test('copyMessageHandler', async () => {
+    const { result } = renderHook(() => useCopyHandler(true, 'test'))
+    result.current.copyMessageHandler()
+    await waitFor(() =>
+      expect(result.current.copyState).toBe(CopyState.Success)
+    )
+  })
+})
