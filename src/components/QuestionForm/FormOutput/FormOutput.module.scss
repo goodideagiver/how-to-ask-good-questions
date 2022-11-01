@@ -16,9 +16,11 @@
 	padding: 1rem;
 	text-align: left;
 	color: white;
-	background-color: #424549;
+	background-color: var(--elevated-bg-color);
 	border-radius: 1rem;
 	box-shadow: var(--box-shadow-main);
+	position: sticky;
+	top: 60px;
 
 	.markdown {
 		p {
