@@ -8,6 +8,10 @@
 	text-align: start;
 	background-color: transparent;
 	width: 100%;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .hidden {
@@ -20,7 +24,6 @@
 }
 
 .output {
-
 	text-align: left;
 	color: white;
 	background-color: var(--elevated-bg-color);

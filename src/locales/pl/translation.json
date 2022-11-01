@@ -33,6 +33,7 @@
       "success": "Skopiowano!"
     },
     "reset": "Wyczyść",
+    "resetTooltip": "Wyczyść wszystkie pola",
     "formatting": {
       "boldHeadings": "Pogrubione nagłówki",
       "headingsAsHeadings": "Nagłówki Markdown",
@@ -47,9 +48,11 @@
     "error": {
       "title": "Błąd",
       "message": "Nie udało się skopiować pytania"
-    }
+    },
+    "click": "Kliknij tutaj, aby skopiować pytanie"
   },
   "chooseLanguage": "Wybierz język",
+  "chooseFormatting": "Wybierz formatowanie",
   "outputPreview": "Podgląd",
   "noData": "Musisz wypełnić przynajmniej jedno pole."
 }

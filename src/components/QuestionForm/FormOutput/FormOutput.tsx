@@ -6,6 +6,8 @@ import { useMessageStore } from '../../../store/message-store'
 
 import classes from './FormOutput.module.scss'
 
+import { Tooltip } from '@chakra-ui/react'
+
 type Props = {
   hasMessage: boolean
   message: string
@@ -45,11 +47,19 @@ export const FormOutput = ({ hasMessage, message }: Props) => {
       <p className={classes['output-title']}>{t('outputPreview')}:</p>
       <div className={classes.output}>
         {hasMessage ? (
-          <button onClick={copyButtonHandler} className={classes.button}>
-            <ReactMarkdown className={classes.markdown}>
-              {message}
-            </ReactMarkdown>
-          </button>
+          <Tooltip
+            hasArrow
+            label={t('copyMessage.click')}
+            fontSize='md'
+            backgroundColor={'black'}
+            borderRadius={'md'}
+          >
+            <button onClick={copyButtonHandler} className={classes.button}>
+              <ReactMarkdown className={classes.markdown}>
+                {message}
+              </ReactMarkdown>
+            </button>
+          </Tooltip>
         ) : (
           <p className={classes.empty}>{t('noData')}</p>
         )}

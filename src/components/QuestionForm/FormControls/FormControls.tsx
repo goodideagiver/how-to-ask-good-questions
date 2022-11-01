@@ -5,6 +5,8 @@ import classes from './FormControls.module.scss'
 import { useCopyButtonState } from './useCopyButtonState.hook'
 import { useCopyHandler } from './useCopyHandler.hook'
 
+import { Tooltip } from '@chakra-ui/react'
+
 export enum CopyState {
   Error,
   Success,
@@ -33,16 +35,32 @@ export const FormControls = ({
 
   return (
     <div className={classes.controls}>
-      <button
-        className={buttonClassNames}
-        onClick={copyMessageHandler}
-        type='button'
+      <Tooltip
+        hasArrow
+        label={t('copyMessage.click')}
+        fontSize='md'
+        backgroundColor={'black'}
+        borderRadius={'md'}
       >
-        {buttonText}
-      </button>
-      <button type='button' onClick={resetFormHandler}>
-        {t('mainButtons.reset')}
-      </button>
+        <button
+          className={buttonClassNames}
+          onClick={copyMessageHandler}
+          type='button'
+        >
+          {buttonText}
+        </button>
+      </Tooltip>
+      <Tooltip
+        hasArrow
+        label={t('mainButtons.resetTooltip')}
+        fontSize='md'
+        backgroundColor={'black'}
+        borderRadius={'md'}
+      >
+        <button type='button' onClick={resetFormHandler}>
+          {t('mainButtons.reset')}
+        </button>
+      </Tooltip>
       <LanguageSelect />
       <FormattingSelect />
     </div>
