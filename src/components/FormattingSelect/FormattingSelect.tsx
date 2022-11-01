@@ -29,13 +29,15 @@ export const FormattingSelect = () => {
     }
   }
 
+  const label = t('chooseFormatting')
+
   return (
     <SelectUI
       value={t(`mainButtons.formatting.${formatting}`)}
       options={translatedOptions.map((option) => option.translated)}
-      buttonLabel='Set formatting'
-      buttonText='Set formatting'
-      labelOnOpen='Formatting'
+      buttonLabel={label}
+      buttonText={label}
+      labelOnOpen={label}
       onChange={selectHandler}
     />
   )
