@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { cssClass } from '../../helpers/cssClass.helper'
-import { useScrollY } from '../../hooks/useScrollY.hook'
 import { useMessageStore } from '../../store/message-store'
 import { MAX_PERCENTAGE } from '../FormProgress/FormProgress'
 import { WindowLayout } from '../WindowLayout/WindowLayout'
@@ -46,20 +44,12 @@ export const QuestionForm = () => {
 
   const formRef = useRef<HTMLFormElement>(null)
 
-  const scrolledDown = useScrollY(formRef.current) > 0
-
-  const rootClasses = cssClass(
-    classes.root,
-    (scrolledDown && classes.rootScrolled) || ''
-  )
-
   return (
     <WindowLayout>
       <QuestionMarks />
-      <form ref={formRef} className={rootClasses}>
+      <form ref={formRef} className={classes.root}>
         <QuestionFormProgress
           percentage={(filledFieldsCount / textareasCount) * MAX_PERCENTAGE}
-          isParentScrolled={scrolledDown}
         />
         <FormTextareas
           onChange={setInputValue}
