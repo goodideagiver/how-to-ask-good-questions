@@ -14,7 +14,7 @@ export const PercentageComment = ({ maxPercentage, percentage }: Props) => {
 
   if (percentage === maxPercentage) {
     return (
-      <div className={classes.comment}>
+      <div data-testid='test-completion' className={classes.comment}>
         {completionComment.split('').map((letter, index) => (
           <span
             className={`${letter === ' ' ? classes.space : ''}`}
@@ -30,7 +30,7 @@ export const PercentageComment = ({ maxPercentage, percentage }: Props) => {
 
   if (percentage > maxPercentage) {
     return (
-      <div className={classes.comment}>
+      <div data-testid='test-completion' className={classes.comment}>
         {overcompletionComment.split('').map((letter, index) => (
           <span
             className={`${letter.trim() === '' ? classes.space : ''}`}

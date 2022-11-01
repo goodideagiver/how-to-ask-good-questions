@@ -39,7 +39,8 @@ export const FormControls = ({
         hasArrow
         label={t('copyMessage.click')}
         fontSize='md'
-        backgroundColor={'black'}
+        backgroundColor={'var(--tooltip-bg-color)'}
+        boxShadow={'var(--box-shadow-main)'}
         borderRadius={'md'}
       >
         <button
@@ -54,7 +55,8 @@ export const FormControls = ({
         hasArrow
         label={t('mainButtons.resetTooltip')}
         fontSize='md'
-        backgroundColor={'black'}
+        backgroundColor={'var(--tooltip-bg-color)'}
+        boxShadow={'var(--box-shadow-main)'}
         borderRadius={'md'}
       >
         <button type='button' onClick={resetFormHandler}>

@@ -81,7 +81,8 @@ export const SelectUI = ({
         hasArrow
         label={buttonText}
         fontSize='md'
-        backgroundColor={'black'}
+        backgroundColor={'var(--tooltip-bg-color)'}
+        boxShadow={'var(--box-shadow-main)'}
         borderRadius={'md'}
       >
         <Select.Trigger aria-label={buttonLabel}>
