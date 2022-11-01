@@ -3,6 +3,17 @@
 
 }
 
+.button {
+	padding: 1rem;
+	text-align: start;
+	background-color: transparent;
+	width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+}
+
 .hidden {
 	visibility: hidden;
 	opacity: 0;
@@ -13,12 +24,13 @@
 }
 
 .output {
-	padding: 1rem;
 	text-align: left;
 	color: white;
-	background-color: #424549;
+	background-color: var(--elevated-bg-color);
 	border-radius: 1rem;
 	box-shadow: var(--box-shadow-main);
+	position: sticky;
+	top: 60px;
 
 	.markdown {
 		p {

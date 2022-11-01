@@ -74,6 +74,7 @@ export const QuestionForm = () => {
           resetFormHandler={resetFormHandler}
         />
       </form>
+
       <FormOutput hasMessage={!!hasMessage} message={message} />
     </WindowLayout>
   )

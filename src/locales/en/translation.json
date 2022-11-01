@@ -33,13 +33,26 @@
       "success": "Copied"
     },
     "reset": "Reset",
+    "resetTooltip": "Reset all fields",
     "formatting": {
       "boldHeadings": "Bold headings",
       "headingsAsHeadings": "Markdown headings",
       "onlyNewLines": "New lines only"
     }
   },
+  "copyMessage": {
+    "success": {
+      "title": "Success",
+      "message": "The question was copied to the clipboard!"
+    },
+    "error": {
+      "title": "Error",
+      "message": "The question could not be copied to the clipboard"
+    },
+    "click": "Click here to copy"
+  },
   "chooseLanguage": "Choose language",
+  "chooseFormatting": "Choose formatting",
   "outputPreview": "Output preview",
   "noData": "You need to enter data in at least one of the fields"
 }

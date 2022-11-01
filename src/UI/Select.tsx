@@ -2,6 +2,8 @@ import * as Select from '@radix-ui/react-select'
 
 import { styled } from '@stitches/react'
 
+import { Tooltip } from '@chakra-ui/react'
+
 const StyledGroupLabel = styled(Select.Label, {
   padding: '0.5rem 0',
   fontWeight: 'bold',
@@ -75,10 +77,18 @@ export const SelectUI = ({
 
   return (
     <Select.Root onValueChange={onChange} value={value}>
-      <Select.Trigger aria-label={buttonLabel}>
-        <Select.Value placeholder={buttonText} />
-        <Select.Icon />
-      </Select.Trigger>
+      <Tooltip
+        hasArrow
+        label={buttonText}
+        fontSize='md'
+        backgroundColor={'black'}
+        borderRadius={'md'}
+      >
+        <Select.Trigger aria-label={buttonLabel}>
+          <Select.Value placeholder={buttonText} />
+          <Select.Icon />
+        </Select.Trigger>
+      </Tooltip>
       {SelectContent}
     </Select.Root>
   )
