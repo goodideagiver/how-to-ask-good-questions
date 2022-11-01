@@ -51,7 +51,8 @@ export const FormOutput = ({ hasMessage, message }: Props) => {
             hasArrow
             label={t('copyMessage.click')}
             fontSize='md'
-            backgroundColor={'black'}
+            backgroundColor={'var(--tooltip-bg-color)'}
+            boxShadow={'var(--box-shadow-main)'}
             borderRadius={'md'}
           >
             <button onClick={copyButtonHandler} className={classes.button}>
