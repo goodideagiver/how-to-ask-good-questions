@@ -39,6 +39,16 @@
       "onlyNewLines": "New lines only"
     }
   },
+  "copyMessage": {
+    "success": {
+      "title": "Success",
+      "message": "The question was copied to the clipboard!"
+    },
+    "error": {
+      "title": "Error",
+      "message": "The question could not be copied to the clipboard"
+    }
+  },
   "chooseLanguage": "Choose language",
   "outputPreview": "Output preview",
   "noData": "You need to enter data in at least one of the fields"

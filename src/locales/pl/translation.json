@@ -39,6 +39,16 @@
       "onlyNewLines": "Tylko nowe linie"
     }
   },
+  "copyMessage": {
+    "success": {
+      "title": "Sukces",
+      "message": "Pytanie zostało skopiowane!"
+    },
+    "error": {
+      "title": "Błąd",
+      "message": "Nie udało się skopiować pytania"
+    }
+  },
   "chooseLanguage": "Wybierz język",
   "outputPreview": "Podgląd",
   "noData": "Musisz wypełnić przynajmniej jedno pole."

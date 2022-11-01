@@ -3,6 +3,13 @@
 
 }
 
+.button {
+	padding: 1rem;
+	text-align: start;
+	background-color: transparent;
+	width: 100%;
+}
+
 .hidden {
 	visibility: hidden;
 	opacity: 0;
@@ -13,7 +20,7 @@
 }
 
 .output {
-	padding: 1rem;
+
 	text-align: left;
 	color: white;
 	background-color: var(--elevated-bg-color);
