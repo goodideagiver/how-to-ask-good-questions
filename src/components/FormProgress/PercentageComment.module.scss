@@ -5,6 +5,27 @@
 	font-weight: bold;
 }
 
+.comment>span {
+	animation: slideIn 1s backwards ease-out;
+	display: inline-block;
+}
+
+.comment .space {
+	display: inline-block;
+	width: 5px;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translate3d(2rem, 0, 0);
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;

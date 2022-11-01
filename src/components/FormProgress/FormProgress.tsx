@@ -11,6 +11,7 @@ type Props = {
 
 export const MAX_PERCENTAGE = 100
 export const MAX_PIXELS_WIDTH = 800
+const MILLISECONDS_CHECK_INTERVAL = 100
 
 export const FormProgress = ({ percentage }: Props) => {
   const [progressTopPosition, setProgressTopPosition] = useState('0')
@@ -29,7 +30,7 @@ export const FormProgress = ({ percentage }: Props) => {
       })
     }
     window.addEventListener('scroll', scrollHandler)
-    const interval = setInterval(scrollHandler, 100)
+    const interval = setInterval(scrollHandler, MILLISECONDS_CHECK_INTERVAL)
     return () => {
       window.removeEventListener('scroll', scrollHandler)
       clearInterval(interval)
@@ -40,7 +41,6 @@ export const FormProgress = ({ percentage }: Props) => {
     <div
       className={classNames}
       style={{
-        // transform: `translate3d: 0 ${progressTopPosition}px 0;`,
         transform: `translate3d(0, ${progressTopPosition}px, 0)`,
         transition: '0.1s ease-in-out',
       }}
